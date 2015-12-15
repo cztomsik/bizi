@@ -1,12 +1,11 @@
 import Component from './component';
 import BsDiv from './_bs-div';
 
-class PageHeader extends Component{}
+class BtnToolbar extends Component{}
 
-PageHeader.tpl = [BsDiv, {
-  base: 'page-header',
+BtnToolbar.tpl = [BsDiv, {
   cssClass: '= cssClass',
   children: '= children'
 }];
 
-export default PageHeader;
+export default BtnToolbar;

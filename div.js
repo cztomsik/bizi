@@ -1,16 +1,18 @@
 import $ from 'jquery';
 
-class Btn{
+class Div{
   constructor(opts){
-    this.$el = $('<button class="btn btn-default"></button>');
+    this.$el = $('<div>');
     this.el = this.$el[0];
 
     this.reset(opts);
   }
 
   reset(opts){
-    this.$el.text(opts.text);
-    this.el.onclick = opts.onClick;
+    this.$el
+      .attr('class', opts.cssClass)
+      .empty()
+      .append(opts.children.map(c => c.el));
   }
 
   destroy(){
@@ -19,4 +21,4 @@ class Btn{
   }
 }
 
-export default Btn;
+export default Div;

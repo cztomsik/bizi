@@ -1,12 +1,12 @@
 import Component from './component';
 import BsDiv from './_bs-div';
 
-class PageHeader extends Component{}
+class NavbarNav extends Component{}
 
-PageHeader.tpl = [BsDiv, {
-  base: 'page-header',
+NavbarNav.tpl = [BsDiv, {
+  base: 'navbar-nav',
   cssClass: '= cssClass',
   children: '= children'
 }];
 
-export default PageHeader;
+export default NavbarNav;

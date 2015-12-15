@@ -1,12 +1,12 @@
 import Component from './component';
 import BsDiv from './_bs-div';
 
-class PageHeader extends Component{}
+class Container extends Component{}
 
-PageHeader.tpl = [BsDiv, {
-  base: 'page-header',
+Container.tpl = [BsDiv, {
+  base: 'container-fluid',
   cssClass: '= cssClass',
   children: '= children'
 }];
 
-export default PageHeader;
+export default Container;

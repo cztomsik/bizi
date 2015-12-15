@@ -1,23 +1,46 @@
+/**
+ * Base class for high-level components
+ *
+ * @param opts
+ */
 class Component{
   constructor(opts){
     this.init(opts);
 
-    Object.defineProperty(this, '_view', {
+    Object.defineProperty(this, 'comps', {
       enumerable: false,
-      value: createView(this.constructor.tpl, this)
+      value: []
     });
+
+    Object.defineProperty(this, 'bindings', {
+      enumerable: false,
+      value: []
+    });
+
+    // TODO: meaningful stack trace
+    Object.defineProperty(this, 'el', {
+      enumerable: false,
+      value: applyTpl.apply(this, this.constructor.tpl).el
+    });
+
+    // debug
+    this.el.comp = this;
   }
 
-  // override/replace if you wish
+  /**
+   * Intialize state during object construction/reset
+   *
+   * @param opts
+   */
   init(opts){
     Object.assign(this, opts);
   }
 
-  // useful for testing
-  update(){
-    this._view.update();
-  }
-
+  /**
+   * Called by owner (databinding)
+   *
+   * @param  opts
+   */
   reset(opts){
     for (let k in this){
       this[k] = undefined;
@@ -27,96 +50,79 @@ class Component{
     this.update();
   }
 
-  destroy(){
-    this._view.destroy();
+  update(){
+    // should be enough (triggers reset which in turn should update $el)
+    this.bindings.forEach((updateBinding) => {
+      updateBinding();
+    });
   }
 
-  get $el(){
-    return this._view.$el;
+  destroy(){
+    this.comps.forEach((c) => {
+      c.destroy();
+    });
+    this.comps = null;
+    this.bindings = null;
   }
 }
 
-function createView(tpl, viewModel){
-  let components = [];
-  let bindings = [];
+function applyTpl(Comp, opts = {}, ...children){
+  const boundOpts = {};
 
-  try{
-    instantiate.apply(null, tpl);
-  } catch(e){
-    console.error('Could not create view', tpl, viewModel);
-    throw e;
+  // shared (from tpl), we need to make a copy
+  opts = Object.assign({}, opts);
+
+  if ( ! ('children' in opts)){
+    opts.children = children.map((tpl) => {
+      return applyTpl.apply(this, tpl);
+    });
   }
 
-  return {
-    get $el(){
-      return components[0].$el;
-    },
+  for (let k in opts){
+    opts[k] = resolveOpt(opts[k], k, this);
+  }
 
-    update(){
-      // should be enough (triggers reset which in turn should update $el)
-      bindings.forEach((updateBinding) => {
-        updateBinding();
-      });
-    },
+  const c = new Comp(opts);
 
-    destroy(){
-      components.forEach((c) => {
-        c.destroy();
-      });
+  for (let k in boundOpts){
+    this.bindings.unshift(watch(boundOpts[k], (v) => {
+      opts[k] = v;
+      c.reset(opts);
+    }));
+  }
 
-      components = null;
-      bindings = null;
-    }
-  };
+  this.comps.push(c);
 
-  function instantiate(Comp, opts = {}, ...children){
-    const boundOpts = {};
-
-    for (let k in opts){
-      opts[k] = resolveOpt(opts[k], k, opts);
-    }
-
-    opts.children = children.map((tpl) => {
-      return instantiate.apply(null, tpl);
-    });
-
-    const c = new Comp(opts);
-
-    for (let k in boundOpts){
-      bindings.unshift(watch(boundOpts[k], (v) => {
-        opts[k] = v;
-        c.reset(opts);
-      }));
-    }
-
-    components.unshift(c);
-
-    return c;
+  return c;
 
 
-    function resolveOpt(v, propName, opts){
-      if (typeof v === 'string'){
-        if (v.startsWith('() ')){
-          return viewModel[v.slice(3)].bind(viewModel);
-        }
+  function resolveOpt(v, propName, comp){
+    if (typeof v === 'string'){
+      if (v.startsWith('() ')){
+        const methName = v.slice(3);
 
-        if (v.startsWith('= ')){
-          const expression = createExpression(v.slice(2));
-          boundOpts[propName] = expression;
-
-          return expression();
-        }
+        // TODO: reconsider this - closure will be shown in stacktrace
+        return () => {
+          comp[methName].apply(comp, arguments);
+          comp.update();
+        };
       }
 
-      return v;
+      if (v.startsWith('= ')){
+        const expression = createExpression(v.slice(2), comp);
+        boundOpts[propName] = expression;
+
+        return expression();
+      }
     }
-  }
 
-
-  function createExpression(expStr){
-    /* jshint evil: true */
-    return new Function('data', 'return data.' + expStr).bind(null, viewModel);
+    return v;
   }
+}
+
+function createExpression(expStr, comp){
+  /* jshint evil: true */
+  return new Function('data', 'return data.' + expStr).bind(null, comp);
 }
 
 function watch(resolve, listener){

@@ -1,16 +1,17 @@
 import $ from 'jquery';
 
-class Btn{
+class Form{
   constructor(opts){
-    this.$el = $('<button class="btn btn-default"></button>');
+    this.$el = $('<form>');
     this.el = this.$el[0];
 
     this.reset(opts);
   }
 
   reset(opts){
-    this.$el.text(opts.text);
-    this.el.onclick = opts.onClick;
+    this.$el
+      .empty()
+      .append(opts.children.map(c => c.el));
   }
 
   destroy(){
@@ -19,4 +20,4 @@ class Btn{
   }
 }
 
-export default Btn;
+export default Form;
