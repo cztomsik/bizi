@@ -1,10 +1,15 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
+import css from './_css';
 
-class Nav extends Component{}
+class Nav extends Component{
+  get divCssClass(){
+    return css.for(this.cssClass, 'nav', this.type);
+  }
+}
 
-Nav.tpl = [BsDiv, {
-  cssClass: '= cssClass',
+Nav.tpl = [Div, {
+  cssClass: '= divCssClass',
   children: '= children'
 }];
 

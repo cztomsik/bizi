@@ -1,10 +1,15 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
+import css from './_css';
 
-class Well extends Component{}
+class Well extends Component{
+  get divCssClass(){
+    return css.for(this.cssClass, 'well', this.size);
+  }
+}
 
-Well.tpl = [BsDiv, {
-  cssClass: '= cssClass',
+Well.tpl = [Div, {
+  cssClass: '= divCssClass',
   children: '= children'
 }];
 

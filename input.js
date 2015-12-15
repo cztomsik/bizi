@@ -11,7 +11,8 @@ class Input{
   reset(opts){
     this.$el.attr({
       type: opts.type,
-      class: opts.cssClass
+      class: opts.cssClass,
+      value: opts.value
     });
 
     this.el.onChange = opts.onChange;

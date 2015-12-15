@@ -1,10 +1,19 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
+import css from './_css';
 
-class Alert extends Component{}
+class Alert extends Component{
+  init(opts){
+    super.init(Object.assign({type: 'info'}, opts));
+  }
 
-Alert.tpl = [BsDiv, {
-  cssClass: '= cssClass',
+  get divCssClass(){
+    return css.for(this.cssClass, 'alert', this.type);
+  }
+}
+
+Alert.tpl = [Div, {
+  cssClass: '= divCssClass',
   children: '= children'
 }];
 

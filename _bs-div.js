@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import bsClass from './_bs-class';
+import css from './_css';
 
 class BsDiv{
   constructor(opts){
@@ -11,7 +11,7 @@ class BsDiv{
 
   reset(opts){
     this.$el
-      .attr('class', bsClass(opts))
+      .attr('class', css.bsClass(opts))
       .empty()
       .append(opts.children.map(c => c.el));
   }

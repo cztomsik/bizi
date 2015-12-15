@@ -1,14 +1,19 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
 import Container from './container';
+import css from './_css';
 
 class Navbar extends Component{
   init(opts){
-    super.init(Object.assign({variant: 'default'}, opts));
+    super.init(Object.assign({type: 'default'}, opts));
+  }
+
+  get divCssClass(){
+    return css.for(this.cssClass, 'navbar', this.type);
   }
 }
 
-Navbar.tpl = [BsDiv, {base: 'navbar', variant: '= variant', cssClass: '= cssClass'},
+Navbar.tpl = [Div, {cssClass: '= divCssClass'},
   [Container, {
     children: '= children'
   }]
