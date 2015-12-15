@@ -1,5 +1,5 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
 
 class BtnToolbar extends Component{
   get divCssClass(){
@@ -7,7 +7,7 @@ class BtnToolbar extends Component{
   }
 }
 
-BtnToolbar.tpl = [BsDiv, {
+BtnToolbar.tpl = [Div, {
   cssClass: '= divCssClass',
   children: '= children'
 }];

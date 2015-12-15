@@ -1,9 +1,12 @@
 import Component from './component';
-import Div from './_bs-div';
+import Div from './div';
+import css from './_css';
 
 class Col extends Component{
   get divCssClass(){
-    return css.for(this.cssClass, 'col');
+    return css.for(this.cssClass, 'col',
+      this.sm && ('sm-' + this.sm)
+    );
   }
 }
 

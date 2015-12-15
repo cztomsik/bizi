@@ -1,11 +1,15 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
+import css from './_css';
 
-class PageHeader extends Component{}
+class PageHeader extends Component{
+  get divCssClass(){
+    return css.for(this.cssClass, 'page-header');
+  }
+}
 
-PageHeader.tpl = [BsDiv, {
-  base: 'page-header',
-  cssClass: '= cssClass',
+PageHeader.tpl = [Div, {
+  cssClass: '= divCssClass',
   children: '= children'
 }];
 

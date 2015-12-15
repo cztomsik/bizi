@@ -1,5 +1,5 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
 import css from './_css';
 
 class BtnGroup extends Component{
@@ -8,7 +8,7 @@ class BtnGroup extends Component{
   }
 }
 
-BtnGroup.tpl = [BsDiv, {
+BtnGroup.tpl = [Div, {
   cssClass: '= divCssClass',
   children: '= children'
 }];

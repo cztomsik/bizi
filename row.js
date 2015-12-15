@@ -1,11 +1,15 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
+import css from './_css';
 
-class Row extends Component{}
+class Row extends Component{
+  get divCssClass(){
+    return css.for(this.cssClass, 'row');
+  }
+}
 
-Row.tpl = [BsDiv, {
-  base: 'row',
-  cssClass: '= cssClass',
+Row.tpl = [Div, {
+  cssClass: '= divCssClass',
   children: '= children'
 }];
 

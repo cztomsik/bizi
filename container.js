@@ -1,11 +1,15 @@
 import Component from './component';
-import BsDiv from './_bs-div';
+import Div from './div';
+import css from './_css';
 
-class Container extends Component{}
+class Container extends Component{
+  get divCssClass(){
+    return css.for(this.cssClass, 'container-fluid');
+  }
+}
 
-Container.tpl = [BsDiv, {
-  base: 'container-fluid',
-  cssClass: '= cssClass',
+Container.tpl = [Div, {
+  cssClass: '= divCssClass',
   children: '= children'
 }];
 
