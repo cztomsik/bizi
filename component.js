@@ -7,45 +7,36 @@ class Component{
   constructor(opts){
     this.init(opts);
 
-    Object.defineProperty(this, 'comps', {
-      enumerable: false,
-      value: []
-    });
-
-    Object.defineProperty(this, 'bindings', {
-      enumerable: false,
-      value: []
-    });
+    this.comps = [];
+    this.bindings = [];
 
     // TODO: meaningful stack trace
-    Object.defineProperty(this, 'el', {
-      enumerable: false,
-      value: applyTpl.apply(this, this.constructor.tpl).el
-    });
+    this.el = applyTpl.apply(this, this.constructor.tpl).el;
 
     // debug
     this.el.comp = this;
+
+    Object.seal(this);
   }
 
   /**
-   * Intialize state during object construction/reset
+   * Set *all* your props to initial state
+   * - instance will be sealed then
+   * - called during object construction/reset
+   *
+   * @see Object.seal()
+   * @param opts
+   */
+  init(opts){}
+
+  /**
+   * Re-initialize whole state with with new opts.
+   * - instead of doing it partially in setters
+   * - called by owner for data-bound changes
    *
    * @param opts
    */
-  init(opts){
-    Object.assign(this, opts);
-  }
-
-  /**
-   * Called by owner (databinding)
-   *
-   * @param  opts
-   */
   reset(opts){
-    for (let k in this){
-      this[k] = undefined;
-    }
-
     this.init(opts);
     this.update();
   }
@@ -57,6 +48,9 @@ class Component{
     });
   }
 
+  /**
+   * Do clean-up here (listeners). Don't forget to call super.destroy()
+   */
   destroy(){
     this.comps.forEach((c) => {
       c.destroy();

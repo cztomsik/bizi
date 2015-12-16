@@ -3,8 +3,9 @@ import Div from './div';
 import css from './_css';
 
 class Panel extends Component{
-  init(opts){
-    super.init(Object.assign({type: 'default'}, opts));
+  init({type = 'default', cssClass, children}){
+    this.cssClass = cssClass;
+    this.children = children;
   }
 
   get divCssClass(){

@@ -4,8 +4,10 @@ import Container from './container';
 import css from './_css';
 
 class Navbar extends Component{
-  init(opts){
-    super.init(Object.assign({type: 'default'}, opts));
+  init({type = 'default', cssClass, children}){
+    this.type = type;
+    this.cssClass = cssClass;
+    this.children = children;
   }
 
   get divCssClass(){

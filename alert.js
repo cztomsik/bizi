@@ -3,8 +3,10 @@ import Div from './div';
 import css from './_css';
 
 class Alert extends Component{
-  init(opts){
-    super.init(Object.assign({type: 'info'}, opts));
+  init({type = 'info', cssClass, children}){
+    this.type = type;
+    this.cssClass = cssClass;
+    this.children = children;
   }
 
   get divCssClass(){

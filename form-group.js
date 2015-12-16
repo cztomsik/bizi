@@ -8,10 +8,11 @@ class FormGroup extends Component{
     super(opts);
   }
 
-  init(opts){
-    super.init(opts);
+  init({label, cssClass, children}){
+    this.label = label;
+    this.cssClass = cssClass;
+    this.children = children;
 
-    // TODO: init should not blindly assign everything (it might cause collisions)
     if ( ! this._label){
       this._label = new ControlLabel({text: this.label});
     }

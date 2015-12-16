@@ -14,6 +14,8 @@ import Form from './form';
 import Heading from './heading';
 import Image from './image';
 import Input from './input';
+import Modal from './modal';
+import NavItem from './nav-item';
 import Nav from './nav';
 import NavbarNav from './navbar-nav';
 import Navbar from './navbar';
@@ -25,5 +27,5 @@ import Text from './text';
 import Well from './well';
 
 export {
-  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, FormControlInput, FormGroup, Form, Heading, Image, Input, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Row, Text, Well
+  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, FormControlInput, FormGroup, Form, Heading, Image, Input, Modal, NavItem, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Row, Text, Well
 };
