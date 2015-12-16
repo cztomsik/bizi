@@ -1,22 +1,22 @@
-import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
+import css from './_css';
 
-class ControlLabel{
-  constructor(opts){
-    this.$el = $('<label>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
+class ControlLabel extends Component{
+  init({text, cssClass}){
+    this.text = text;
+    this.cssClass = cssClass;
   }
 
-  reset(opts){
-    this.$el.text(opts.text);
-    this.$el.attr('class', 'control-label ' + opts.cssClass);
-  }
-
-  destroy(){
-    this.$el.remove();
-    this.$el = null;
+  get labelCssClass(){
+    return css.for(this.cssClass, 'control-label');
   }
 }
+
+ControlLabel.tpl = [Element, {
+  tagName: 'label',
+  className: '= labelCssClass',
+  innerText: '= text'
+}];
 
 export default ControlLabel;

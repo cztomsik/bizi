@@ -1,22 +1,25 @@
-import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
+import css from './_css';
 
-class Btn{
-  constructor(opts){
-    this.$el = $('<button class="btn btn-default"></button>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
+class Btn extends Component{
+  init({type = 'default', text, cssClass, onClick}){
+    this.type = type;
+    this.text = text;
+    this.cssClass = cssClass;
+    this.onClick = onClick;
   }
 
-  reset(opts){
-    this.$el.text(opts.text);
-    this.el.onclick = opts.onClick;
-  }
-
-  destroy(){
-    this.$el.remove();
-    this.$el = null;
+  get buttonCssClass(){
+    return css.for('btn', this.type);
   }
 }
+
+Btn.tpl = [Element, {
+  tagName: 'button',
+  innerText: '= text',
+  className: '= buttonCssClass',
+  onclick: '= onClick'
+}];
 
 export default Btn;

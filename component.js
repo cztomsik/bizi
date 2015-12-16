@@ -1,6 +1,30 @@
 /**
  * Base class for high-level components
  *
+ * Intented usage:
+ *
+ *     import * as b from 'bizi';
+ *
+ *     class Counter extends b.Component{
+ *       init(){
+ *         this.count = 0;
+ *       }
+ *
+ *       dec(){
+ *         this.count--;
+ *       }
+ *
+ *       inc(){
+ *         this.count++;
+ *       }
+ *     }
+ *
+ *     Counter.tpl = [b.Well, {},
+ *       [b.Text, {value: '= count'}],
+ *       [b.Btn, {text: '--', onClick: '() dec'}],
+ *       [b.Btn, {text: '++', onClick: '() inc'}]
+ *     ];
+ *
  * @param opts
  */
 class Component{
@@ -17,6 +41,8 @@ class Component{
     this.el.comp = this;
 
     Object.seal(this);
+
+    this.update();
   }
 
   /**
@@ -49,14 +75,16 @@ class Component{
   }
 
   /**
-   * Do clean-up here (listeners). Don't forget to call super.destroy()
+   * Do clean-up here (listeners). Don't forget to call super.destroy() when finished
    */
   destroy(){
     this.comps.forEach((c) => {
       c.destroy();
     });
-    this.comps = null;
-    this.bindings = null;
+
+    for (var k in this){
+      this[k] = null;
+    }
   }
 }
 
@@ -96,7 +124,8 @@ function applyTpl(Comp, opts = {}, ...children){
         const methName = v.slice(3);
 
         // TODO: reconsider this - closure will be shown in stacktrace
-        return () => {
+        // regular function because of `arguments` visibility
+        return function(){
           comp[methName].apply(comp, arguments);
           comp.update();
         };

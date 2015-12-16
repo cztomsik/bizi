@@ -1,27 +1,21 @@
-import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
 
-class Input{
-  constructor(opts){
-    this.$el = $('<input>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
-  }
-
-  reset(opts){
-    this.$el.attr({
-      type: opts.type,
-      class: opts.cssClass,
-      value: opts.value
-    });
-
-    this.el.onChange = opts.onChange;
-  }
-
-  destroy(){
-    this.$el.remove();
-    this.$el = null;
+class Input extends Component{
+  init({type, className, value, onChange}){
+    this.type = type;
+    this.className = className;
+    this.value = value;
+    this.onChange = onChange;
   }
 }
+
+Input.tpl = [Element, {
+  tagName: 'input',
+  type: '= type',
+  className: '= className',
+  value: '= value',
+  onchange: '= onChange'
+}];
 
 export default Input;

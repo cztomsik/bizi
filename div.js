@@ -1,24 +1,26 @@
 import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
 
-class Div{
-  constructor(opts){
-    this.$el = $('<div>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
+class Div extends Component{
+  init({children, cssClass}){
+    this.children = children;
+    this.cssClass = cssClass;
   }
 
-  reset(opts){
-    this.$el
-      .attr('class', opts.cssClass)
-      .empty()
-      .append(opts.children.map(c => c.el));
-  }
+  update(){
+    super.update();
 
-  destroy(){
-    this.$el.remove();
-    this.$el = null;
+    const $el = $(this.el);
+
+    $el.empty();
+    $el.append(this.children.map(c => c.el));
   }
 }
+
+Div.tpl = [Element, {
+  tagName: 'div',
+  className: '= cssClass'
+}];
 
 export default Div;

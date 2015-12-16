@@ -1,25 +1,33 @@
 import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
 
-class Heading{
-  constructor(opts){
-    this.$el = $('<h2>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
+class Heading extends Component{
+  init({text, smallText, br = true}){
+    this.text = text;
+    this.smallText = smallText;
+    this.br = br;
   }
 
-  // doesnt happend that much (we dont always render everything)
-  reset(opts){
-    this.$el.text(opts.text);
+  // doesn't happen that much
+  update(){
+    super.update();
 
-    if (opts.smallText){
-      if (opts.br !== 'false'){
-        this.$el.append('<br>');
+    const $el = $(this.el);
+
+    if (this.smallText){
+      if (this.br){
+        $el.append('<br>');
       }
 
-      this.$el.append($('<small>').text(opts.smallText));
+      $el.append($('<small>').text(this.smallText));
     }
   }
 }
+
+Heading.tpl = [Element, {
+  tagName: 'h2',
+  innerText: '= text'
+}];
 
 export default Heading;

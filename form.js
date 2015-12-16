@@ -1,23 +1,26 @@
 import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
 
-class Form{
-  constructor(opts){
-    this.$el = $('<form>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
+class Form extends Component{
+  init({children, cssClass}){
+    this.children = children;
+    this.cssClass = cssClass;
   }
 
-  reset(opts){
-    this.$el
-      .empty()
-      .append(opts.children.map(c => c.el));
-  }
+  update(){
+    super.update();
 
-  destroy(){
-    this.$el.remove();
-    this.$el = null;
+    const $el = $(this.el);
+
+    $el.empty();
+    $el.append(this.children.map(c => c.el));
   }
 }
+
+Form.tpl = [Element, {
+  tagName: 'form',
+  className: '= cssClass'
+}];
 
 export default Form;

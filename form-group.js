@@ -4,15 +4,14 @@ import Div from './div';
 import ControlLabel from './control-label';
 
 class FormGroup extends Component{
-  constructor(opts){
-    super(opts);
-  }
-
   init({label, cssClass, children}){
     this.label = label;
     this.cssClass = cssClass;
     this.children = children;
 
+    // how about making instantiate public? so we can get instance of (bound) component
+    // which will be automatically destroyed?
+    // - it doesnt have to be instance method though (Component.getManagedInstance())
     if ( ! this._label){
       this._label = new ControlLabel({text: this.label});
     }
@@ -21,11 +20,11 @@ class FormGroup extends Component{
   }
 
   destroy(){
-    super.destroy();
-
     this._label.destroy();
     this._label = null;
     this.divChildren = null;
+
+    super.destroy();
   }
 }
 

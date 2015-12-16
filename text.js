@@ -1,22 +1,17 @@
-import $ from 'jquery';
+import Component from './component';
+import Element from './_element';
 
-class Text{
-  constructor(opts){
-    this.$el = $('<span>');
-    this.el = this.$el[0];
-
-    this.reset(opts);
-  }
-
-  reset(opts){
-    this.$el.text(opts.value);
-    this.$el.attr('class', opts.cssClass);
-  }
-
-  destroy(){
-    this.$el.remove();
-    this.$el = null;
+class Text extends Component{
+  init({value, cssClass}){
+    this.value = value;
+    this.cssClass = cssClass;
   }
 }
+
+Text.tpl = [Element, {
+  tagName: 'span',
+  className: '= cssClass',
+  innerText: '= value'
+}];
 
 export default Text;
