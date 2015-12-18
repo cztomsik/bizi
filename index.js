@@ -23,9 +23,10 @@ import PageHeader from './page-header';
 import Page from './page';
 import Panel from './panel';
 import Row from './row';
+import Select from './select';
 import Text from './text';
 import Well from './well';
 
 export {
-  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, FormControlInput, FormGroup, Form, Heading, Image, Input, Modal, NavItem, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Row, Text, Well
+  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, FormControlInput, FormGroup, Form, Heading, Image, Input, Modal, NavItem, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Row, Select, Text, Well
 };

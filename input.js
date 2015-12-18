@@ -2,7 +2,7 @@ import Component from './component';
 import Element from './_element';
 
 class Input extends Component{
-  init({type, className, value, onChange}){
+  init({type = 'text', className, value, onChange}){
     this.type = type;
     this.className = className;
     this.value = value;

@@ -11,7 +11,7 @@ class Btn extends Component{
   }
 
   get buttonCssClass(){
-    return css.for('btn', this.type);
+    return css.for(this.cssClass, 'btn', this.type);
   }
 }
 

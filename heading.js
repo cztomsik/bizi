@@ -3,7 +3,7 @@ import Component from './component';
 import Element from './_element';
 
 class Heading extends Component{
-  init({text, smallText, br = true}){
+  init({text = '', smallText, br = true}){
     this.text = text;
     this.smallText = smallText;
     this.br = br;

@@ -68,6 +68,11 @@ class Component{
   }
 
   update(){
+    // if component was destroyed during change
+    if ( ! this.el){
+      return;
+    }
+
     // should be enough (triggers reset which in turn should update $el)
     this.bindings.forEach((updateBinding) => {
       updateBinding();
