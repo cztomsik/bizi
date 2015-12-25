@@ -18,6 +18,7 @@ import NavItem from './nav-item';
 import Nav from './nav';
 import NavbarNav from './navbar-nav';
 import Navbar from './navbar';
+import NumberInput from './number-input';
 import PageHeader from './page-header';
 import Page from './page';
 import Panel from './panel';
@@ -30,5 +31,5 @@ import Textarea from './textarea';
 import Well from './well';
 
 export {
-  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, Dropdown, FormGroup, Form, Heading, Image, Modal, NavItem, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Pre, Row, Select, TextInput, Text, Textarea, Well
+  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, Dropdown, FormGroup, Form, Heading, Image, Modal, NavItem, Nav, NavbarNav, Navbar, NumberInput, PageHeader, Page, Panel, Pre, Row, Select, TextInput, Text, Textarea, Well
 };

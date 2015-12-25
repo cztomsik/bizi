@@ -7,12 +7,16 @@ class TextInput extends Component{
     this.value = value;
     this.onValue = onValue;
   }
+
+  get inputValue(){
+    return (this.value === null) ?'' :this.value;
+  }
 }
 
 TextInput.tpl = [FormControl, {
   tagName: 'input',
   cls: '= cls',
-  value: '= value',
+  value: '= inputValue',
   onValue: '= onValue'
 }];
 
