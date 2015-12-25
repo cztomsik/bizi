@@ -3,9 +3,9 @@ import Component from './component';
 import Element from './_element';
 
 class Form extends Component{
-  init({children, cssClass}){
+  init({children, cls}){
     this.children = children;
-    this.cssClass = cssClass;
+    this.cls = cls;
   }
 
   render(){
@@ -20,7 +20,7 @@ class Form extends Component{
 
 Form.tpl = [Element, {
   tagName: 'form',
-  className: '= cssClass'
+  className: '= cls'
 }];
 
 export default Form;

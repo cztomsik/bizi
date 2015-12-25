@@ -3,18 +3,18 @@ import Div from './div';
 import css from './_css';
 
 class Panel extends Component{
-  init({type = 'default', cssClass, children}){
-    this.cssClass = cssClass;
+  init({type = 'default', cls, children}){
+    this.cls = cls;
     this.children = children;
   }
 
-  get divCssClass(){
-    return css.for(this.cssClass, 'panel', this.type);
+  get divCls(){
+    return css.for(this.cls, 'panel', this.type);
   }
 }
 
 Panel.tpl = [Div, {
-  cssClass: '= divCssClass',
+  cls: '= divCls',
   children: '= children'
 }];
 

@@ -10,7 +10,7 @@ class Datagrid{
 
   reset(opts){
     this.$el.attr({
-      class: 'table table-bordered ' + opts.cssClass
+      class: 'table table-bordered ' + opts.cls
     });
 
     this.$el.empty();

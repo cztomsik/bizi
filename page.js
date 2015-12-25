@@ -2,14 +2,14 @@ import Component from './component';
 import Div from './div';
 
 class Page extends Component{
-  init({cssClass, children}){
-    this.cssClass = cssClass;
+  init({cls, children}){
+    this.cls = cls;
     this.children = children;
   }
 }
 
 Page.tpl = [Div, {
-  cssClass: '= cssClass',
+  cls: '= cls',
   children: '= children'
 }];
 

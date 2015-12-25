@@ -3,19 +3,19 @@ import Element from './_element';
 import css from './_css';
 
 class ControlLabel extends Component{
-  init({text, cssClass}){
+  init({text, cls}){
     this.text = text;
-    this.cssClass = cssClass;
+    this.cls = cls;
   }
 
-  get labelCssClass(){
-    return css.for(this.cssClass, 'control-label');
+  get labelCls(){
+    return css.for(this.cls, 'control-label');
   }
 }
 
 ControlLabel.tpl = [Element, {
   tagName: 'label',
-  className: '= labelCssClass',
+  className: '= labelCls',
   innerText: '= text'
 }];
 

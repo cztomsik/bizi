@@ -2,16 +2,16 @@ import Component from './component';
 import Element from './_element';
 
 class Image extends Component{
-  init({src, cssClass}){
+  init({src, cls}){
     this.src = src;
-    this.cssClass = cssClass;
+    this.cls = cls;
   }
 }
 
 Image.tpl = [Element, {
   tagName: 'img',
   src: '= src',
-  className: '= cssClass'
+  className: '= cls'
 }];
 
 export default Image;

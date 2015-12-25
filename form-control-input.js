@@ -2,15 +2,15 @@ import Component from './component';
 import Input from './input';
 
 class FormControlInput extends Component{
-  init({type, cssClass, value, onValue}){
+  init({type, cls, value, onValue}){
     this.type = type;
-    this.cssClass = cssClass;
+    this.cls = cls;
     this.value = value;
     this.onValue = onValue;
   }
 
-  get inputCssClass(){
-    return `form-control ${this.cssClass}`;
+  get inputCls(){
+    return `form-control ${this.cls}`;
   }
 
   onInputChange(e){
@@ -20,7 +20,7 @@ class FormControlInput extends Component{
 
 FormControlInput.tpl = [Input, {
   type: '= type',
-  className: '= inputCssClass',
+  className: '= inputCls',
   value: '= value',
   onChange: '() onInputChange'
 }];

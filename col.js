@@ -3,14 +3,14 @@ import Div from './div';
 import css from './_css';
 
 class Col extends Component{
-  init({sm = '', cssClass, children}){
+  init({sm = '', cls, children}){
     this.sm = sm;
-    this.cssClass = cssClass;
+    this.cls = cls;
     this.children = children;
   }
 
-  get divCssClass(){
-    return css.for(this.cssClass, 'col',
+  get divCls(){
+    return css.for(this.cls, 'col',
       this.sm && ('sm-' + this.sm)
     );
   }
@@ -18,7 +18,7 @@ class Col extends Component{
 
 Col.tpl = [Div, {
   // TODO: xs, sm, md, lg, offset, push, pull
-  cssClass: '= divCssClass',
+  cls: '= divCls',
   children: '= children'
 }];
 

@@ -2,15 +2,15 @@ import Component from './component';
 import Element from './_element';
 
 class Text extends Component{
-  init({value, cssClass}){
+  init({value, cls}){
     this.value = value;
-    this.cssClass = cssClass;
+    this.cls = cls;
   }
 }
 
 Text.tpl = [Element, {
   tagName: 'span',
-  className: '= cssClass',
+  className: '= cls',
   innerText: '= value'
 }];
 

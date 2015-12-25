@@ -4,9 +4,9 @@ import Div from './div';
 import ControlLabel from './control-label';
 
 class FormGroup extends Component{
-  init({label, cssClass, children}){
+  init({label, cls, children}){
     this.label = label;
-    this.cssClass = cssClass;
+    this.cls = cls;
     this.children = children;
 
     // how about making instantiate public? so we can get instance of (bound) component
@@ -29,7 +29,7 @@ class FormGroup extends Component{
 }
 
 FormGroup.tpl = [Div, {
-  cssClass: 'form-group',
+  cls: 'form-group',
   children: '= divChildren'
 }];
 

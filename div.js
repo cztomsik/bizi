@@ -3,9 +3,9 @@ import Component from './component';
 import Element from './_element';
 
 class Div extends Component{
-  init({children, cssClass}){
+  init({children, cls}){
     this.children = children;
-    this.cssClass = cssClass;
+    this.cls = cls;
   }
 
   render(){
@@ -20,7 +20,7 @@ class Div extends Component{
 
 Div.tpl = [Element, {
   tagName: 'div',
-  className: '= cssClass'
+  className: '= cls'
 }];
 
 export default Div;

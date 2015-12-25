@@ -3,19 +3,19 @@ import Div from './div';
 import css from './_css';
 
 class Alert extends Component{
-  init({type = 'info', cssClass, children}){
+  init({type = 'info', cls, children}){
     this.type = type;
-    this.cssClass = cssClass;
+    this.cls = cls;
     this.children = children;
   }
 
-  get divCssClass(){
-    return css.for(this.cssClass, 'alert', this.type);
+  get divCls(){
+    return css.for(this.cls, 'alert', this.type);
   }
 }
 
 Alert.tpl = [Div, {
-  cssClass: '= divCssClass',
+  cls: '= divCls',
   children: '= children'
 }];
 

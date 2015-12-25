@@ -2,12 +2,12 @@ import Component from './component';
 import Element from './_element';
 
 class Dropdown extends Component{
-  init({cssClass}){
-    this.cssClass = cssClass;
+  init({cls}){
+    this.cls = cls;
   }
 }
 
 Dropdown.tpl = [Element, {
   tagName: 'li',
-  className: '= cssClass'
+  className: '= cls'
 }];

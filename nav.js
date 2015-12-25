@@ -3,18 +3,18 @@ import Div from './div';
 import css from './_css';
 
 class Nav extends Component{
-  init({cssClass, children}){
-    this.cssClass = cssClass;
+  init({cls, children}){
+    this.cls = cls;
     this.children = children;
   }
 
-  get divCssClass(){
-    return css.for(this.cssClass, 'nav', this.type);
+  get divCls(){
+    return css.for(this.cls, 'nav', this.type);
   }
 }
 
 Nav.tpl = [Div, {
-  cssClass: '= divCssClass',
+  cls: '= divCls',
   children: '= children'
 }];
 

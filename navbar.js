@@ -4,18 +4,18 @@ import Container from './container';
 import css from './_css';
 
 class Navbar extends Component{
-  init({type = 'default', cssClass, children}){
+  init({type = 'default', cls, children}){
     this.type = type;
-    this.cssClass = cssClass;
+    this.cls = cls;
     this.children = children;
   }
 
-  get divCssClass(){
-    return css.for(this.cssClass, 'navbar', this.type);
+  get divCls(){
+    return css.for(this.cls, 'navbar', this.type);
   }
 }
 
-Navbar.tpl = [Div, {cssClass: '= divCssClass'},
+Navbar.tpl = [Div, {cls: '= divCls'},
   [Container, {
     children: '= children'
   }]

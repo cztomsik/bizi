@@ -3,22 +3,22 @@ import Element from './_element';
 import css from './_css';
 
 class Btn extends Component{
-  init({type = 'default', text, cssClass, onClick}){
+  init({type = 'default', text, cls, onClick}){
     this.type = type;
     this.text = text;
-    this.cssClass = cssClass;
+    this.cls = cls;
     this.onClick = onClick;
   }
 
-  get buttonCssClass(){
-    return css.for(this.cssClass, 'btn', this.type);
+  get buttonCls(){
+    return css.for(this.cls, 'btn', this.type);
   }
 }
 
 Btn.tpl = [Element, {
   tagName: 'button',
   innerText: '= text',
-  className: '= buttonCssClass',
+  className: '= buttonCls',
   onclick: '= onClick'
 }];
 

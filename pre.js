@@ -2,15 +2,15 @@ import Component from './component';
 import Element from './_element';
 
 class Pre extends Component{
-  init({cssClass, innerHTML}){
-    this.cssClass = cssClass;
+  init({cls, innerHTML}){
+    this.cls = cls;
     this.innerHTML = innerHTML;
   }
 }
 
 Pre.tpl = [Element, {
   tagName: 'pre',
-  className: '= cssClass',
+  className: '= cls',
   innerHTML: '= innerHTML'
 }];
 
