@@ -10,8 +10,8 @@ class Heading extends Component{
   }
 
   // doesn't happen that much
-  update(){
-    super.update();
+  render(){
+    super.render();
 
     const $el = $(this.el);
 

@@ -37,12 +37,15 @@ class Component{
     // TODO: meaningful stack trace
     this.el = applyTpl.apply(this, this.constructor.tpl).el;
 
-    // debug
+    // useful for debugging:
+    // - inspect element
+    // - leaked DOM element
+    // you should not use it to get component instances
     this.el.comp = this;
 
     Object.seal(this);
 
-    this.update();
+    this.render();
   }
 
   /**
@@ -64,10 +67,10 @@ class Component{
    */
   reset(opts){
     this.init(opts);
-    this.update();
+    this.render();
   }
 
-  update(){
+  render(){
     // if component was destroyed during change
     if ( ! this.el){
       return;
@@ -105,6 +108,16 @@ function applyTpl(Comp, opts = {}, ...children){
     });
   }
 
+  // `& obj.prop` shortcut
+  for (let k in opts){
+    var v = opts[k];
+
+    if ((typeof v === 'string') && v.startsWith('& ')){
+      opts[k] = '=' + v.slice(1);
+      opts['on' + k.slice(0, 1).toUpperCase() + k.slice(1)] = setter(this, v.slice(2));
+    }
+  }
+
   for (let k in opts){
     opts[k] = resolveOpt(opts[k], k, this);
   }
@@ -132,7 +145,7 @@ function applyTpl(Comp, opts = {}, ...children){
         // regular function because of `arguments` visibility
         return function(){
           comp[methName].apply(comp, arguments);
-          comp.update();
+          comp.render();
         };
       }
 
@@ -164,6 +177,10 @@ function watch(resolve, listener){
       oldVal = val;
     }
   };
+}
+
+function setter(obj, path){
+  return new Function('obj, v', 'return obj.' + path + ' = v').bind(null, obj);
 }
 
 export default Component;

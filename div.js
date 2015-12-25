@@ -8,8 +8,8 @@ class Div extends Component{
     this.cssClass = cssClass;
   }
 
-  update(){
-    super.update();
+  render(){
+    super.render();
 
     const $el = $(this.el);
 
