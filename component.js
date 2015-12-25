@@ -180,7 +180,7 @@ function watch(resolve, listener){
 }
 
 function setter(obj, path){
-  return new Function('obj, v', 'return obj.' + path + ' = v').bind(null, obj);
+  return new Function('obj, v', 'obj.' + path + ' = v; obj.render();').bind(null, obj);
 }
 
 export default Component;
