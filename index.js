@@ -9,13 +9,10 @@ import ControlLabel from './control-label';
 import Datagrid from './datagrid';
 import Div from './div';
 import Dropdown from './dropdown';
-import FormControlInput from './form-control-input';
-import FormControl from './form-control';
 import FormGroup from './form-group';
 import Form from './form';
 import Heading from './heading';
 import Image from './image';
-import Input from './input';
 import Modal from './modal';
 import NavItem from './nav-item';
 import Nav from './nav';
@@ -27,9 +24,11 @@ import Panel from './panel';
 import Pre from './pre';
 import Row from './row';
 import Select from './select';
+import TextInput from './text-input';
 import Text from './text';
+import Textarea from './textarea';
 import Well from './well';
 
 export {
-  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, Dropdown, FormControlInput, FormControl, FormGroup, Form, Heading, Image, Input, Modal, NavItem, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Pre, Row, Select, Text, Well
+  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, Dropdown, FormGroup, Form, Heading, Image, Modal, NavItem, Nav, NavbarNav, Navbar, PageHeader, Page, Panel, Pre, Row, Select, TextInput, Text, Textarea, Well
 };
