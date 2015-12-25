@@ -16,7 +16,7 @@ class Heading extends Component{
     const $el = $(this.el);
 
     if (this.smallText){
-      if (this.br){
+      if (this.text && this.br){
         $el.append('<br>');
       }
 
