@@ -29,7 +29,7 @@
  */
 class Component{
   constructor(opts){
-    this.init(opts);
+    const res = this.init(opts);
 
     this.comps = [];
     this.bindings = [];
@@ -46,6 +46,12 @@ class Component{
     Object.seal(this);
 
     this.render();
+
+    if (res && res.then){
+      res.then(() => {
+        this.render();
+      });
+    }
   }
 
   /**
@@ -144,8 +150,14 @@ function applyTpl(Comp, opts = {}, ...children){
         // TODO: reconsider this - closure will be shown in stacktrace
         // regular function because of `arguments` visibility
         return function(){
-          comp[methName].apply(comp, arguments);
+          const res = comp[methName].apply(comp, arguments);
           comp.render();
+
+          if (res && res.then){
+            res.then(() => {
+              comp.render();
+            });
+          }
         };
       }
 
