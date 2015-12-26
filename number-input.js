@@ -16,8 +16,9 @@ class NumberInput extends Component{
     });
   }
 
-  init({cls, value, onValue}){
+  init({cls, placeholder, value, onValue}){
     this.cls = cls;
+    this.placeholder = placeholder;
     this.value = parseNum(value);
     this.onValue = onValue;
   }
@@ -29,6 +30,7 @@ class NumberInput extends Component{
 
 NumberInput.tpl = [TextInput, {
   cls: '= cls',
+  placeholder: '= placeholder',
   value: '= value',
   onValue: '= onValue'
 }];

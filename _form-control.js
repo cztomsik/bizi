@@ -2,9 +2,10 @@ import Component from './component';
 import Element from './_element';
 
 class FormControl extends Component{
-  init({tagName, cls, value, onValue}){
+  init({tagName, cls, placeholder, value, onValue}){
     this.tagName = tagName;
     this.cls = cls;
+    this.placeholder = placeholder;
     this.value = value;
     this.onValue = onValue;
   }
@@ -21,6 +22,7 @@ class FormControl extends Component{
 FormControl.tpl = [Element, {
   tagName: '= tagName',
   className: '= controlCls',
+  placeholder: '= placeholder',
   value: '= value',
   onchange: '() controlChange'
 }];
