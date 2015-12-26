@@ -15,6 +15,11 @@ class Element{
         continue;
       }
 
+      if ((k === 'className') && ( ! opts[k])){
+        this.el.removeAttribute('class');
+        continue;
+      }
+
       this.el[k] = opts[k];
     }
   }
