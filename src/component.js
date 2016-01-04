@@ -41,7 +41,7 @@ class Component{
     // - inspect element
     // - leaked DOM element
     // you should not use it to get component instances
-    this.el.comp = this;
+    this.el.biziComp = this;
 
     Object.seal(this);
 
@@ -108,7 +108,7 @@ function applyTpl(Comp, opts = {}, ...children){
   // shared (from tpl), we need to make a copy
   opts = Object.assign({}, opts);
 
-  if ( ! ('children' in opts)){
+  if (( ! ('children' in opts)) && children.length){
     opts.children = children.map((tpl) => {
       return applyTpl.apply(this, tpl);
     });
