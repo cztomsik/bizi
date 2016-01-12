@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Component from './component';
 import Div from './div';
 import ControlLabel from './control-label';
