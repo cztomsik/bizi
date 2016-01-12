@@ -43,8 +43,6 @@ class Component{
     // you should not use it to get component instances
     this.el.biziComp = this;
 
-    Object.seal(this);
-
     this.render();
 
     if (res && res.then){
@@ -58,8 +56,6 @@ class Component{
    * Set *all* your props to initial state
    * - instance will be sealed then
    * - called during object construction/reset
-   *
-   * @see Object.seal()
    * @param opts
    */
   init(opts){}
