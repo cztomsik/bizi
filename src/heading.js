@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Component from './component';
 import Element from './_element';
 
@@ -20,7 +19,7 @@ class Heading extends Component{
         $el.append('<br>');
       }
 
-      $el.append($('<small>').text(this.smallText));
+      $el.append($('<small>', {text: this.smallText}));
     }
   }
 }

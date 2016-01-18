@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Component from './component';
 import TextInput from './text-input';
 
