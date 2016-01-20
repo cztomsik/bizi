@@ -28,8 +28,9 @@ import Select from './select';
 import TextInput from './text-input';
 import Text from './text';
 import Textarea from './textarea';
+import View from './view';
 import Well from './well';
 
 export {
-  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, Dropdown, FormGroup, Form, Heading, Image, Modal, NavItem, Nav, NavbarNav, Navbar, NumberInput, PageHeader, Page, Panel, Pre, Row, Select, TextInput, Text, Textarea, Well
+  Alert, BtnGroup, BtnToolbar, Btn, Col, Component, Container, ControlLabel, Datagrid, Div, Dropdown, FormGroup, Form, Heading, Image, Modal, NavItem, Nav, NavbarNav, Navbar, NumberInput, PageHeader, Page, Panel, Pre, Row, Select, TextInput, Text, Textarea, View, Well
 };
