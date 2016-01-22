@@ -1,41 +1,52 @@
-# bizi2
+# bizi
 Bootstrap-based UI component library
 
 ## Sample applications
   - [bizi site](https://github.com/cztomsik/bizi-www)
   - [simple CRM](https://github.com/cztomsik/bizi-crm)
 
-## Showcase
+## Component library
+You can use any component directly:
 
-### Templates
+    const btn = new b.Btn({
+      text: ...,
+      onClick: ...
+    });
 
-    TODO: example
+    document.body.appendChild(btn.el);
 
-### One-way binding
+## Data-bound templates
 
-    var viewModel = {
-      num: 0
+    const person = {
+      name: 'John Doe',
+
+      greet(){
+        alert('Hello' + this.name);
+      }
     };
 
-    setInterval(function(){
-      viewModel.num++;
-    }, 1000);
+    const view = new b.View({
+      model: person,
+      tpl: [b.Div, {},
+        // one-way
+        [b.Heading, {text: '= name'}],
 
-    // template
-    [b.Text, {value: '= num'}]
+        // two-way
+        [b.TextInput, {value: '& name'}],
 
-### Two-way binding
+        // callback
+        [b.Btn, {text: 'Click me', onClick: '() greet'}],
+      ]
+    });
 
-    // template
-    [b.FormGroup, {label: 'Your name'},
-      [b.TextInput, {value: '& name'}],
-      [b.Text, {value: '= name'}]
-    ]
+    document.body.appendChild(view.el);
 
-### Callbacks
+## Custom components
 
-    var viewModel = {
-      count: 0,
+    class Counter extends b.Component{
+      init(){
+        this.count = 0;
+      }
 
       dec(){
         this.count--;
@@ -44,37 +55,14 @@ Bootstrap-based UI component library
       inc(){
         this.count++;
       }
-    };
+    }
 
-    // template
-    [b.Div, {},
+    Counter.tpl = [b.Div, {},
       [b.Text, {value: '= count'}],
+
       [b.Btn, {text: '--', onClick: '() dec'}],
-      [b.Btn, {text: '++', onClick: '() inc'}]
-    ]
+      [b.Btn, {text: '++, onClick: '() inc'}],
+    ];
 
 ### Promises
-
-    var viewModel = {
-      text: 'Click me',
-
-      go(){
-        this.text = 'running';
-
-        return wait(1000).then(() => {
-          this.text = 'done';
-        });
-      }
-    }
-
-    function wait(millis){
-      return new Promise(function(resolve){
-        setTimeout(function(){
-          resolve();
-        }, millis)
-      });
-    }
-
-    [b.Div, {},
-      [b.Btn, {text: ''}]
-    ]
+It's also possible to return promises from callbacks - in that case, UI will be updated twice.

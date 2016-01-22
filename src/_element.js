@@ -36,6 +36,12 @@ class Element{
   }
 
   destroy(){
+    // TODO: rethink this
+    // clean up (DOM leaks)
+    this.el.onclick = null;
+    this.el.onchange = null;
+    this.el.onclick = null;
+
     this.el = null;
   }
 }

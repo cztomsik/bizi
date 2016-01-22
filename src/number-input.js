@@ -25,6 +25,11 @@ class NumberInput extends Component{
   onInputValue(v){
     this.onValue(parseNum(v));
   }
+
+  destroy(){
+    $(this.el).off('input keypress');
+    super.destroy();
+  }
 }
 
 NumberInput.tpl = [TextInput, {

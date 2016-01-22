@@ -72,7 +72,9 @@ class Component{
    * Do clean-up here (listeners). Don't forget to call super.destroy() when finished
    */
   destroy(){
+    this.el = null;
     this._biziView.destroy();
+    this._biziView = null;
   }
 }
 

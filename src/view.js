@@ -28,11 +28,22 @@ class View{
     });
   }
 
-  reset(){
-    throw new Error('dynamic views are not supported');
+  reset(opts){
+    // replacing element might cause a lot of headache
+    // so at least for now the philosophy is to have
+    // static template/element structure
+    if (this.tpl !== opts.tpl){
+      throw new Error('dynamic views are not supported');
+    }
+
+    this.destroy();
+    this.constructor.call(this, opts);
   }
 
   destroy(){
+    this.el.biziComp = null;
+    this.el = null;
+
     this.comps.forEach((c) => {
       c.destroy();
     });
