@@ -3,7 +3,6 @@
   TODO:
     .active
     .affix
-    .alert
     .alert-dismissable
     .alert-dismissible
     .alert-link
@@ -143,7 +142,6 @@
     .nav-stacked
     .nav-tabs
     .nav-tabs-justified
-    .navbar-brand
     .navbar-btn
     .navbar-collapse
     .navbar-fixed-bottom
@@ -269,6 +267,7 @@ export {default as ListGroupItem} from './list-group-item';
 export {default as Modal} from './modal';
 export {default as NavItem} from './nav-item';
 export {default as Nav} from './nav';
+export {default as NavbarBrand} from './navbar-brand';
 export {default as NavbarNav} from './navbar-nav';
 export {default as Navbar} from './navbar';
 export {default as NumberInput} from './number-input';
