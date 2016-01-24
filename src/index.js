@@ -135,7 +135,6 @@
     .modal-scrollbar-measure
     .modal-sm
     .modal-title
-    .nav
     .nav-divider
     .nav-justified
     .nav-pills
@@ -150,14 +149,12 @@
     .navbar-header
     .navbar-left
     .navbar-link
-    .navbar-nav
     .navbar-right
     .navbar-static-top
     .navbar-text
     .navbar-toggle
     .next
     .open
-    .page-header
     .pager
     .pagination
     .pagination-lg
@@ -201,19 +198,14 @@
     .table-striped
     .text-capitalize
     .text-center
-    .text-danger
     .text-hide
-    .text-info
     .text-justify
     .text-left
     .text-lowercase
     .text-muted
     .text-nowrap
-    .text-primary
     .text-right
-    .text-success
     .text-uppercase
-    .text-warning
     .thumbnail
     .tooltip
     .tooltip-arrow

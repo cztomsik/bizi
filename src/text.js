@@ -1,16 +1,23 @@
 import Component from './component';
 import Element from './_element';
+import css from './_css';
 
 class Text extends Component{
-  init({value, cls}){
+  init({value, type, cls}){
+    // primary, success, info, warning, danger
+    this.type = type;
+
     this.value = value;
-    this.cls = cls;
+  }
+
+  get spanCls(){
+    return css.join(css.filter(this.cls, ...css.prefix('text', this.type)));
   }
 }
 
 Text.tpl = [Element, {
   tagName: 'span',
-  className: '= cls',
+  className: '= spanCls',
   innerText: '= value'
 }];
 
