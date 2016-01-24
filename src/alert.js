@@ -4,6 +4,7 @@ import css from './_css';
 
 class Alert extends Component{
   init({type = 'info', cls, children}){
+    // success/info/warning/danger
     this.type = type;
     this.cls = cls;
     this.children = children;

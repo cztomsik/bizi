@@ -1,9 +1,12 @@
 import Component from './component';
 import Div from './div';
+import css from './_css';
 import ControlLabel from './control-label';
 
 class FormGroup extends Component{
-  init({label, cls, children}){
+  init({size, label, cls, children}){
+    // sm/lg
+    this.size = size;
     this.label = label;
     this.cls = cls;
     this.children = children;
@@ -18,6 +21,10 @@ class FormGroup extends Component{
     this.divChildren = [this._label].concat(this.children);
   }
 
+  get divCls(){
+    return css.for(this.cls, 'form-group', this.size);
+  }
+
   destroy(){
     this._label.destroy();
     this._label = null;
@@ -28,7 +35,7 @@ class FormGroup extends Component{
 }
 
 FormGroup.tpl = [Div, {
-  cls: 'form-group',
+  cls: '= divCls',
   children: '= divChildren'
 }];
 

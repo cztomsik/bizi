@@ -6,6 +6,7 @@ import css from './_css';
 
 class Navbar extends Component{
   init({type = 'default', text = '', href = '', cls, children}){
+    // default/inverse
     this.type = type;
     this.text = text;
     this.href = href;

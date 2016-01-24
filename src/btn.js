@@ -3,8 +3,11 @@ import Element from './_element';
 import css from './_css';
 
 class Btn extends Component{
-  init({type = 'default', text, cls, onClick}){
+  init({type = 'default', size, text, cls, onClick}){
+    // default/primary/warning/danger/success/info/link
     this.type = type;
+    // xs/sm/lg
+    this.size = size;
     this.text = text;
     this.cls = cls;
     this.onClick = onClick;

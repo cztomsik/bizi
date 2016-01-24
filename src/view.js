@@ -17,11 +17,6 @@ class View{
   }
 
   render(){
-    // if component was destroyed during change
-    if ( ! this.el){
-      return;
-    }
-
     // should be enough (triggers reset which in turn should update $el)
     this.bindings.forEach((updateBinding) => {
       updateBinding();
@@ -103,14 +98,21 @@ function applyTpl(Comp, opts = {}, ...children){
         // regular function because of `arguments` visibility
         return function(){
           const res = comp[methName].apply(comp, arguments);
-          comp.render();
+          rerender();
 
           if (res && res.then){
-            res.then(() => {
-              comp.render();
-            });
+            res.then(rerender);
           }
         };
+
+        function rerender(){
+          // if component was destroyed during change
+          if ( ! comp.el){
+            return;
+          }
+
+          comp.render();
+        }
       }
 
       if (v.startsWith('= ')){

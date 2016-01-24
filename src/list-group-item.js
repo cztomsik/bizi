@@ -2,22 +2,22 @@ import Component from './component';
 import Div from './div';
 import css from './_css';
 
-class Panel extends Component{
-  init({type = 'default', cls, children}){
-    // default/primary/success/warning/danger/info
+class ListGroupItem extends Component{
+  init({type, cls, children}){
+    // success/info/warning/danger
     this.type = type;
     this.cls = cls;
     this.children = children;
   }
 
   get divCls(){
-    return css.for(this.cls, 'panel', this.type);
+    return css.for(this.cls, 'list-group-item', this.type);
   }
 }
 
-Panel.tpl = [Div, {
+ListGroupItem.tpl = [Div, {
   cls: '= divCls',
   children: '= children'
 }];
 
-export default Panel;
+export default ListGroupItem;

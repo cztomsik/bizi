@@ -2,22 +2,20 @@ import Component from './component';
 import Div from './div';
 import css from './_css';
 
-class Well extends Component{
-  init({size, cls, children}){
-    // sm/lg
-    this.size = size;
+class PanelFooter extends Component{
+  init({cls, children}){
     this.cls = cls;
     this.children = children;
   }
 
   get divCls(){
-    return css.for(this.cls, 'well', this.size);
+    return css.for(this.cls, 'panel-footer');
   }
 }
 
-Well.tpl = [Div, {
+PanelFooter.tpl = [Div, {
   cls: '= divCls',
   children: '= children'
 }];
 
-export default Well;
+export default PanelFooter;
