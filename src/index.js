@@ -271,6 +271,7 @@ export {default as Panel} from './panel';
 export {default as Pre} from './pre';
 export {default as Row} from './row';
 export {default as Select} from './select';
+export {default as Table} from './table';
 export {default as TextInput} from './text-input';
 export {default as Text} from './text';
 export {default as Textarea} from './textarea';
