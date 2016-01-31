@@ -4,12 +4,8 @@ import css from './_css';
 
 class BtnToolbar extends Component{
   init({cls, children}){
-    this.cls = cls;
+    this.divCls = css.for(cls, 'btn-toolbar');
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'btn-toolbar');
   }
 }
 

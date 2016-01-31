@@ -4,12 +4,8 @@ import css from './_css';
 
 class ControlLabel extends Component{
   init({text, cls}){
+    this.labelCls = css.for(cls, 'control-label');
     this.text = text;
-    this.cls = cls;
-  }
-
-  get labelCls(){
-    return css.for(this.cls, 'control-label');
   }
 }
 

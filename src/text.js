@@ -4,14 +4,8 @@ import css from './_css';
 
 class Text extends Component{
   init({value, type, cls}){
-    // primary, success, info, warning, danger
-    this.type = type;
-
+    this.spanCls = css.join(css.filter(cls, ...css.prefix('text', type)));
     this.value = value;
-  }
-
-  get spanCls(){
-    return css.join(css.filter(this.cls, ...css.prefix('text', this.type)));
   }
 }
 

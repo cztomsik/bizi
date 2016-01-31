@@ -5,15 +5,8 @@ import ControlLabel from './control-label';
 
 class FormGroup extends Component{
   init({size, cls, children}){
-    // sm/lg
-    this.size = size;
-
-    this.cls = cls;
+    this.divCls = css.for(cls, 'form-group', size);
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'form-group', this.size);
   }
 }
 

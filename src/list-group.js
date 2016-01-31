@@ -4,12 +4,8 @@ import css from './_css';
 
 class ListGroup extends Component{
   init({cls, children}){
-    this.cls = cls;
+    this.divCls = css.for(cls, 'list-group');
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'list-group');
   }
 }
 

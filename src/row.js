@@ -4,12 +4,8 @@ import css from './_css';
 
 class Row extends Component{
   init({cls, children}){
-    this.cls = cls;
+    this.divCls = css.for(cls, 'row');
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'row');
   }
 }
 

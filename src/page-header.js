@@ -4,12 +4,8 @@ import css from './_css';
 
 class PageHeader extends Component{
   init({cls, children}){
-    this.cls = cls;
+    this.divCls = css.for(cls, 'page-header');
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'page-header');
   }
 }
 

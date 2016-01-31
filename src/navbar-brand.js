@@ -4,14 +4,10 @@ import css from './_css';
 
 class NavbarBrand extends Component{
   init({text, href, cls, onClick}){
+    this.linkCls = css.for(cls, 'navbar-brand');
     this.text = text;
     this.href = href;
-    this.cls = cls;
     this.onClick = onClick;
-  }
-
-  get linkCls(){
-    return css.for(this.cls, 'navbar-brand');
   }
 }
 

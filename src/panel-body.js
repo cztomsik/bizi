@@ -4,12 +4,8 @@ import css from './_css';
 
 class PanelBody extends Component{
   init({cls, children}){
-    this.cls = cls;
+    this.divCls = css.for(cls, 'panel-body');
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'panel-body');
   }
 }
 

@@ -4,12 +4,6 @@ import View from './view';
 import Repeater from './_repeater';
 import css from './_css';
 
-// TODO: columns - bindable because of permissions & other dynamic requirements - templates are static and so not a good fit
-
-
-
-
-
 /**
  *
  *
@@ -43,7 +37,8 @@ import css from './_css';
  */
 class Datagrid extends Component{
   init({cls, columns, items}){
-    this.cls = cls;
+    this.tableCls = css.for(cls, 'table', 'hover', 'striped', 'bordered');
+
     this.columns = columns;
     this.items = items;
 
@@ -51,10 +46,6 @@ class Datagrid extends Component{
 
     // wrap `col.tpl`s in `td`s, then wrap all of them in `tr`
     this.rowTpl = [Element, {tagName: 'tr'}, ...this.columns.map(c => [Element, {tagName: 'td'}, ...[c.tpl]])];
-  }
-
-  get tableCls(){
-    return css.for(this.cls, 'table', 'hover', 'striped', 'bordered');
   }
 }
 

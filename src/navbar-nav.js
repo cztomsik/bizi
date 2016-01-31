@@ -4,12 +4,8 @@ import css from './_css';
 
 class NavbarNav extends Component{
   init({cls, children}){
-    this.cls = cls;
+    this.divCls = css.for(cls, 'nav navbar-nav');
     this.children = children;
-  }
-
-  get divCls(){
-    return css.for(this.cls, 'nav navbar-nav');
   }
 }
 

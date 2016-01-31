@@ -1,17 +1,14 @@
 import Component from './component';
 import Element from './_element';
+import css from './_css';
 
 class FormControl extends Component{
   init({tagName, cls, placeholder, value, onValue}){
     this.tagName = tagName;
-    this.cls = cls;
+    this.controlCls = css.for(cls, 'form-control');
     this.placeholder = placeholder;
     this.value = value;
     this.onValue = onValue;
-  }
-
-  get controlCls(){
-    return `form-control ${this.cls}`;
   }
 
   controlChange(e){
