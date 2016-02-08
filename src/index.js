@@ -16,6 +16,7 @@ export {default as Label} from './label';
 export {default as Link} from './link';
 export {default as Modal} from './modal';
 export {default as NavItem} from './nav-item';
+export {default as NavDropdown} from './nav-dropdown';
 export {default as Nav} from './nav';
 export {default as NavbarBrand} from './navbar-brand';
 export {default as NavbarNav} from './navbar-nav';
