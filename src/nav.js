@@ -1,16 +1,17 @@
 import Component from './component';
-import Div from './div';
+import Element from './_element';
 import css from './_css';
 
 class Nav extends Component{
-  init({cls, children}){
-    this.divCls = css.for(cls, 'nav', type);
+  init({cls, children, type}){
+    this.ulCls = css.for(cls, 'nav', type);
     this.children = children;
   }
 }
 
-Nav.tpl = [Div, {
-  cls: '= divCls',
+Nav.tpl = [Element, {
+  tagName: 'ul',
+  className: '= ulCls',
   children: '= children'
 }];
 
