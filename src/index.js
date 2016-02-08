@@ -14,8 +14,6 @@ export {default as Heading} from './heading';
 export {default as Image} from './image';
 export {default as Label} from './label';
 export {default as Link} from './link';
-export {default as ListGroup} from './list-group';
-export {default as ListGroupItem} from './list-group-item';
 export {default as Modal} from './modal';
 export {default as NavItem} from './nav-item';
 export {default as Nav} from './nav';
