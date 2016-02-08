@@ -2,16 +2,16 @@ import Component from './component';
 import Div from './div';
 import css from './_css';
 
-class BtnToolbar extends Component{
-  init({cls, children}){
-    this.divCls = css.for(cls, 'btn-toolbar');
+class ButtonGroup extends Component{
+  init({size, cls, children}){
+    this.divCls = css.for(cls, 'btn-group', size);
     this.children = children;
   }
 }
 
-BtnToolbar.tpl = [Div, {
+ButtonGroup.tpl = [Div, {
   cls: '= divCls',
   children: '= children'
 }];
 
-export default BtnToolbar;
+export default ButtonGroup;
