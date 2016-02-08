@@ -29,6 +29,7 @@ export {default as PanelBody} from './panel-body';
 export {default as PanelFooter} from './panel-footer';
 export {default as Panel} from './panel';
 export {default as Pre} from './pre';
+export {default as Progress} from './progress';
 export {default as Row} from './row';
 export {default as Select} from './select';
 export {default as Table} from './table';

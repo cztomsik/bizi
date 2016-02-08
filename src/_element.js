@@ -16,6 +16,11 @@ class Element{
       }
 
       if (k === 'children'){
+        if ( ! opts.children){
+          // Div bounds children so it will be always-present (and possibly undefined)
+          continue;
+        }
+
         this.el.innerHTML = '';
         opts.children.forEach(c => this.el.appendChild(c.el));
         continue;
