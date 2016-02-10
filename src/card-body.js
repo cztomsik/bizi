@@ -2,16 +2,16 @@ import Component from './component';
 import Div from './div';
 import css from './_css';
 
-class ButtonToolbar extends Component{
+class CardBody extends Component{
   init({cls, children}){
-    this.divCls = css.for(cls, 'btn-toolbar');
+    this.divCls = css.for(cls, 'panel-body');
     this.children = children;
   }
 }
 
-ButtonToolbar.tpl = [Div, {
+CardBody.tpl = [Div, {
   cls: '= divCls',
   children: '= children'
 }];
 
-export default ButtonToolbar;
+export default CardBody;

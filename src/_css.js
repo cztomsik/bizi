@@ -14,9 +14,17 @@ function prefixNames(prefix, ...names){
   return names.map(n => (n ?`${prefix}-${n}` :''));
 }
 
+function init(){
+  document.head.insertAdjacentHTML('beforeend', `<style>
+    .bg-default{background: transparent}
+    .bg-faded{background: #eef}
+  </style>`);
+}
+
 export default {
   filter: filter,
   join: join,
   prefix: prefixNames,
-  'for': cssFor
+  'for': cssFor,
+  init: init
 };

@@ -4,7 +4,7 @@ import css from './_css';
 
 class PageHeader extends Component{
   init({cls, children}){
-    this.divCls = css.for(cls, 'page-header');
+    this.divCls = css.for(cls + ' bg-faded', 'page-header');
     this.children = children;
   }
 }

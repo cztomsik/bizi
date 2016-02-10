@@ -2,16 +2,16 @@ import Component from './component';
 import Div from './div';
 import css from './_css';
 
-class Panel extends Component{
-  init({type = 'default', cls, children}){
-    this.divCls = css.for(cls, 'panel', type);
+class CardFooter extends Component{
+  init({cls, children}){
+    this.divCls = css.for(cls, 'panel-footer');
     this.children = children;
   }
 }
 
-Panel.tpl = [Div, {
+CardFooter.tpl = [Div, {
   cls: '= divCls',
   children: '= children'
 }];
 
-export default Panel;
+export default CardFooter;

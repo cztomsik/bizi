@@ -8,7 +8,7 @@ class Heading extends Component{
 }
 
 Heading.tpl = [Element, {
-  tagName: 'h2',
+  tagName: 'h3',
   innerText: '= text'
 }];
 

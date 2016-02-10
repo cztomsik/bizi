@@ -2,16 +2,16 @@ import Component from './component';
 import Div from './div';
 import css from './_css';
 
-class PanelFooter extends Component{
-  init({cls, children}){
-    this.divCls = css.for(cls, 'panel-footer');
+class Media extends Component{
+  init({align = 'top', cls, children}){
+    this.divCls = css.for(cls, 'media', align);
     this.children = children;
   }
 }
 
-PanelFooter.tpl = [Div, {
+Media.tpl = [Div, {
   cls: '= divCls',
   children: '= children'
 }];
 
-export default PanelFooter;
+export default Media;

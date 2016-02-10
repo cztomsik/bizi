@@ -14,7 +14,7 @@ import css from './_css';
  *       ...
  *     ]
  *
- *     [b.Datagrid, {
+ *     [b.DataGrid, {
  *       columns: '= cols',
  *       items: '= people'
  *     }]
@@ -35,7 +35,7 @@ import css from './_css';
  *    - locking
  *
  */
-class Datagrid extends Component{
+class DataGrid extends Component{
   init({cls, columns, items}){
     this.tableCls = css.for(cls, 'table', 'hover', 'striped', 'bordered');
 
@@ -49,7 +49,7 @@ class Datagrid extends Component{
   }
 }
 
-Datagrid.tpl = [Element, {tagName: 'table', className: '= tableCls'},
+DataGrid.tpl = [Element, {tagName: 'table', className: '= tableCls'},
   [Element, {tagName: 'thead'},
     [Repeater, {tagName: 'tr', items: '= columns', tpl: '= colTpl'}]
   ],
@@ -57,4 +57,4 @@ Datagrid.tpl = [Element, {tagName: 'table', className: '= tableCls'},
   [Repeater, {tagName: 'tbody', items: '= items', tpl: '= rowTpl'}]
 ];
 
-export default Datagrid;
+export default DataGrid;
