@@ -1,30 +1,24 @@
-function cssFor(cls, prefix, ...names){
-  return join(filter(cls, prefix, ...prefixNames(prefix, ...names)));
-}
-
-function join(names){
+function css(...names){
   return names.join(' ');
-}
-
-function filter(...names){
-  return names.filter(Boolean);
-}
-
-function prefixNames(prefix, ...names){
-  return names.map(n => (n ?`${prefix}-${n}` :''));
 }
 
 function init(){
   document.head.insertAdjacentHTML('beforeend', `<style>
-    .bg-default{background: transparent}
-    .bg-faded{background: #eef}
+    /* compatible with bs4 */
+    .m-a-0{margin: 0 !important}
+    .m-t-0{margin-top: 0 !important}
+    .m-r-0{margin-right: 0 !important}
+    .m-b-0{margin-bottom: 0 !important}
+    .m-l-0{margin-left: 0 !important}
+
+    .p-a-0{padding: 0 !important}
+    .p-t-0{padding-top: 0 !important}
+    .p-r-0{padding-right: 0 !important}
+    .p-b-0{padding-bottom: 0 !important}
+    .p-l-0{padding-left: 0 !important}
   </style>`);
 }
 
-export default {
-  filter: filter,
-  join: join,
-  prefix: prefixNames,
-  'for': cssFor,
-  init: init
-};
+css.init = init;
+
+export default css;

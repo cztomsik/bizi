@@ -3,11 +3,12 @@ import Element from './_element';
 import css from './_css';
 
 class FormControl extends Component{
-  init({tagName, cls, placeholder, value, onValue}){
+  init({tagName, value, placeholder, cls, onValue}){
+    this.controlCls = css(cls, 'form-control');
+
     this.tagName = tagName;
-    this.controlCls = css.for(cls, 'form-control');
+    this.value = value || '';
     this.placeholder = placeholder;
-    this.value = value;
     this.onValue = onValue;
   }
 

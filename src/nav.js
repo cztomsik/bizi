@@ -3,8 +3,8 @@ import Element from './_element';
 import css from './_css';
 
 class Nav extends Component{
-  init({cls, children, type}){
-    this.ulCls = css.for(cls, 'nav', type);
+  init({type, cls, children}){
+    this.ulCls = css(cls, 'nav', `nav-${type}`);
     this.children = children;
   }
 }

@@ -22,7 +22,7 @@ import View from './view';
  *     }
  *
  *     Counter.tpl = [b.Well, {},
- *       [b.Text, {value: '= count'}],
+ *       [b.Span, {text: '= count'}],
  *       [b.Btn, {text: '--', onClick: '() dec'}],
  *       [b.Btn, {text: '++', onClick: '() inc'}]
  *     ];

@@ -4,7 +4,7 @@ import css from './_css';
 
 class Label extends Component{
   init({text, cls}){
-    this.labelCls = css.for(cls, 'control-label');
+    this.labelCls = css(cls, 'control-label');
     this.text = text;
   }
 }

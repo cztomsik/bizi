@@ -3,8 +3,8 @@ import Element from './_element';
 import css from './_css';
 
 class Button extends Component{
-  init({type = 'default', size, text, cls, onClick}){
-    this.buttonCls = css.for(cls, 'btn', type, size);
+  init({text, bg = 'default', size = 'md', cls, onClick}){
+    this.buttonCls = css(cls, 'btn', `btn-${bg}`, `btn-${size}`);
     this.text = text;
     this.onClick = onClick;
   }

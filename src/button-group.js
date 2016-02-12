@@ -3,8 +3,8 @@ import Div from './div';
 import css from './_css';
 
 class ButtonGroup extends Component{
-  init({size, cls, children}){
-    this.divCls = css.for(cls, 'btn-group', size);
+  init({size = 'md', cls, children}){
+    this.divCls = css(cls, 'btn-group', `btn-group-${size}`);
     this.children = children;
   }
 }

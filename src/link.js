@@ -3,11 +3,25 @@ import Element from './_element';
 import css from './_css';
 
 class Link extends Component{
-  init({text, href = '', cls, onClick}){
+  init({text, href = '', toggle, toggleTarget, cls, onClick}){
     this.text = text;
     this.href = href;
-    this.cls = cls;
+    this.toggle = toggle;
+    this.toggleTarget = toggleTarget;
+    this.cls = css(cls);
     this.onClick = onClick;
+  }
+
+  render(){
+    super.render();
+
+    if (this.toggle){
+      this.el.setAttribute('data-toggle', this.toggle);
+    }
+
+    if (this.toggleTarget){
+      this.el.setAttribute('data-target', this.toggleTarget);
+    }
   }
 
   click(e){

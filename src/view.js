@@ -75,18 +75,29 @@ function applyTpl(Comp, opts = {}, ...children){
     opts[k] = resolveOpt(opts[k], k, this.model);
   }
 
-  const c = new Comp(opts);
+  try {
+    const c = new Comp(opts);
 
-  for (let k in boundOpts){
-    this.bindings.unshift(watch(boundOpts[k], (v) => {
-      opts[k] = v;
-      c.reset(opts);
-    }));
+    for (let k in boundOpts){
+      this.bindings.unshift(watch(boundOpts[k], (v) => {
+        opts[k] = v;
+        c.reset(opts);
+      }));
+    }
+
+    this.comps.push(c);
+
+    return c;
+  } catch (e) {
+    console.error(JSON.stringify(this.tpl, (k, v) => {
+      if (v instanceof Function){
+        return v.name;
+      }
+
+      return v;
+    }, 2));
+    throw e;
   }
-
-  this.comps.push(c);
-
-  return c;
 
 
   function resolveOpt(v, propName, comp){

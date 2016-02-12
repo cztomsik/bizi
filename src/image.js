@@ -5,7 +5,7 @@ import css from './_css';
 class Image extends Component{
   init({src, cls}){
     this.src = src;
-    this.imgCls = css.for(cls, 'img-responsive');
+    this.imgCls = css(cls);
   }
 }
 

@@ -4,8 +4,8 @@ import Link from './link';
 import css from './_css';
 
 class NavDropdown extends Component{
-  init({cls, text, children}){
-    this.liCls = css.for(cls, 'dropdown');
+  init({text, cls, children}){
+    this.liCls = css(cls, 'dropdown');
 
     this.text = text;
     this.children = children;

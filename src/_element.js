@@ -45,6 +45,7 @@ class Element{
     // clean up (DOM leaks)
     this.el.onclick = null;
     this.el.onchange = null;
+    this.el.onsubmit = null;
     this.el.onclick = null;
 
     this.el = null;

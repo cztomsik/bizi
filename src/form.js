@@ -1,18 +1,19 @@
 import Component from './component';
 import Element from './_element';
+import css from './_css';
 
 class Form extends Component{
-  init({children, cls, onChange}){
+  init({layout = 'stacked', cls, onSubmit, children}){
+    this.formCls = css(cls, `form-${layout}`);
+    this.onSubmit = onSubmit;
     this.children = children;
-    this.cls = cls;
-    this.onChange = onChange;
   }
 }
 
 Form.tpl = [Element, {
   tagName: 'form',
   className: '= cls',
-  onchange: '= onChange',
+  onsubmit: '= onSubmit',
   children: '= children'
 }];
 

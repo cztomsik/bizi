@@ -10,7 +10,7 @@ import css from './_css';
  *     this.people = [{name: ..., ...}, ...];
  *
  *     this.cols = [
- *       {header: 'Name', tpl: [b.Text, {value: '= item.name'}]},
+ *       {header: 'Name', tpl: [b.Span, {text: '= item.name'}]},
  *       ...
  *     ]
  *
@@ -32,12 +32,13 @@ import css from './_css';
  *    - striped/bordered/hover flags
  *    - column sorting
  *    - fixed header
+ *    - sticky header
  *    - locking
  *
  */
 class DataGrid extends Component{
   init({cls, columns, items}){
-    this.tableCls = css.for(cls, 'table', 'hover', 'striped', 'bordered');
+    this.tableCls = css(cls, 'table table-striped');
 
     this.columns = columns;
     this.items = items;
