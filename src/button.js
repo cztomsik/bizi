@@ -3,8 +3,8 @@ import Element from './_element';
 import css from './_css';
 
 class Button extends Component{
-  init({text, bg = 'default', size = 'md', cls, onClick}){
-    this.buttonCls = css(cls, 'btn', `btn-${bg}`, `btn-${size}`);
+  init({text, cls, onClick}){
+    this.buttonCls = css(cls, 'btn', 'btn-default');
     this.text = text;
     this.onClick = onClick;
   }
@@ -12,6 +12,7 @@ class Button extends Component{
 
 Button.tpl = [Element, {
   tagName: 'button',
+  type: 'button',
   innerText: '= text',
   className: '= buttonCls',
   onclick: '= onClick'

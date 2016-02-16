@@ -1,4 +1,3 @@
-export {default as ButtonGroup} from './button-group';
 export {default as Button} from './button';
 export {default as Component} from './component';
 export {default as DataGrid} from './data-grid';

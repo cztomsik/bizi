@@ -1,4 +1,5 @@
 import Component from './component';
+import Div from './div';
 import FormControl from './_form-control';
 
 class TextField extends Component{
@@ -10,12 +11,13 @@ class TextField extends Component{
   }
 }
 
-TextField.tpl = [FormControl, {
-  tagName: 'input',
-  value: '= value',
-  placeholder: '= placeholder',
-  cls: '= cls',
-  onValue: '= onValue'
-}];
+TextField.tpl = [Div, {cls: '= cls'},
+  [FormControl, {
+    tagName: 'input',
+    value: '= value',
+    placeholder: '= placeholder',
+    onValue: '= onValue'
+  }]
+];
 
 export default TextField;

@@ -30,7 +30,7 @@ import css from './_css';
  *
  *  TODO:
  *    - striped/bordered/hover flags
- *    - column sorting
+ *    - sort by column
  *    - fixed header
  *    - sticky header
  *    - locking

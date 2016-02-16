@@ -16,6 +16,8 @@ function init(){
     .p-r-0{padding-right: 0 !important}
     .p-b-0{padding-bottom: 0 !important}
     .p-l-0{padding-left: 0 !important}
+
+    .text-truncate {overflow: hidden; text-overflow: ellipsis; white-space: nowrap}
   </style>`);
 }
 

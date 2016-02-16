@@ -9,7 +9,7 @@ class FormControl extends Component{
     this.tagName = tagName;
     this.value = value || '';
     this.placeholder = placeholder;
-    this.onValue = onValue;
+    this.onValue = onValue || () => {};
   }
 
   controlChange(e){
