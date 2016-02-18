@@ -11,7 +11,8 @@ class Repeater extends Component{
     this.items = items;
     this.tpl = tpl;
 
-    this.children = this.items.map(item => new View({model: {item}, tpl}));
+    this.views = this.items.map(item => new View({model: {item}, tpl}));
+    this.children = this.views.map(item => item.el);
   }
 
   reset(opts){
@@ -20,7 +21,7 @@ class Repeater extends Component{
   }
 
   destroyChildren(){
-    this.children.forEach(it => it.destroy());
+    this.views.forEach(v => v.destroy());
   }
 
   destroy(){

@@ -22,7 +22,7 @@ class Element{
         }
 
         this.el.innerHTML = '';
-        opts.children.forEach(c => this.el.appendChild(c.el));
+        opts.children.forEach(childEl => this.el.appendChild(childEl));
         continue;
       }
 

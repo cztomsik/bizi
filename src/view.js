@@ -57,7 +57,7 @@ function applyTpl(Comp, opts = {}, ...children){
 
   if (( ! ('children' in opts)) && children.length){
     opts.children = children.map((tpl) => {
-      return applyTpl.apply(this, tpl);
+      return applyTpl.apply(this, tpl).el;
     });
   }
 
