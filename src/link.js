@@ -1,14 +1,14 @@
 import Component from './component';
 import Element from './_element';
-import css from './_css';
+import _css from './_css';
 
 class Link extends Component{
-  init({text, href = '', toggle, toggleTarget, cls, onClick}){
+  init({text, href = '', toggle, toggleTarget, css, onClick}){
     this.text = text;
     this.href = href;
     this.toggle = toggle;
     this.toggleTarget = toggleTarget;
-    this.cls = css(cls);
+    this.css = _css(css);
     this.onClick = onClick;
   }
 
@@ -39,7 +39,7 @@ Link.tpl = [Element, {
   tagName: 'a',
   href: '= href',
   innerText: '= text',
-  className: '= cls',
+  className: '= css',
   onclick: '() click'
 }];
 

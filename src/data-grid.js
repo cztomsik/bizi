@@ -2,7 +2,7 @@ import Component from './component';
 import Element from './_element';
 import View from './view';
 import Repeater from './_repeater';
-import css from './_css';
+import _css from './_css';
 
 /**
  *
@@ -37,8 +37,8 @@ import css from './_css';
  *
  */
 class DataGrid extends Component{
-  init({cls, columns, items}){
-    this.tableCls = css(cls, 'table table-striped');
+  init({css, columns, items}){
+    this.tableCss = _css(css, 'table table-striped');
 
     this.columns = columns;
     this.items = items;
@@ -50,7 +50,7 @@ class DataGrid extends Component{
   }
 }
 
-DataGrid.tpl = [Element, {tagName: 'table', className: '= tableCls'},
+DataGrid.tpl = [Element, {tagName: 'table', className: '= tableCss'},
   [Element, {tagName: 'thead'},
     [Repeater, {tagName: 'tr', items: '= columns', tpl: '= colTpl'}]
   ],

@@ -2,10 +2,10 @@ import Component from './component';
 import FormControl from './_form-control';
 
 class TextArea extends Component{
-  init({value, placeholder, cls, onValue}){
+  init({value, placeholder, css, onValue}){
     this.value = value;
     this.placeholder = placeholder;
-    this.cls = cls;
+    this.css = css;
     this.onValue = onValue;
   }
 }
@@ -14,7 +14,7 @@ TextArea.tpl = [FormControl, {
   tagName: 'textarea',
   value: '= value',
   placeholder: '= placeholder',
-  cls: '= cls',
+  css: '= css',
   onValue: '= onValue'
 }];
 

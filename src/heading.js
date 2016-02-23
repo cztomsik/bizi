@@ -1,17 +1,17 @@
 import Component from './component';
 import Element from './_element';
-import css from './_css';
+import _css from './_css';
 
 class Heading extends Component{
-  init({text, cls}){
+  init({text, css}){
     this.text = text;
-    this.headingCls = css(cls, 'm-a-0');
+    this.headingCss = _css(css, 'm-a-0');
   }
 }
 
 Heading.tpl = [Element, {
   tagName: 'h3',
-  className: '= headingCls',
+  className: '= headingCss',
   innerText: '= text'
 }];
 

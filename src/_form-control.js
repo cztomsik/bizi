@@ -1,10 +1,10 @@
 import Component from './component';
 import Element from './_element';
-import css from './_css';
+import _css from './_css';
 
 class FormControl extends Component{
-  init({tagName, value, placeholder, cls, onValue}){
-    this.controlCls = css(cls, 'form-control');
+  init({tagName, value, placeholder, css, onValue}){
+    this.controlCss = _css(css, 'form-control');
 
     this.tagName = tagName;
     this.value = value || '';
@@ -19,7 +19,7 @@ class FormControl extends Component{
 
 FormControl.tpl = [Element, {
   tagName: '= tagName',
-  className: '= controlCls',
+  className: '= controlCss',
   placeholder: '= placeholder',
   value: '= value',
   onchange: '() controlChange'

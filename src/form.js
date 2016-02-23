@@ -1,10 +1,10 @@
 import Component from './component';
 import Element from './_element';
-import css from './_css';
+import _css from './_css';
 
 class Form extends Component{
-  init({cls, onSubmit, children}){
-    this.formCls = css(cls);
+  init({css, onSubmit, children}){
+    this.formCss = _css(css);
     this.onSubmit = onSubmit || () => {};
     this.children = children;
   }
@@ -20,7 +20,7 @@ class Form extends Component{
 
 Form.tpl = [Element, {
   tagName: 'form',
-  className: '= formCls',
+  className: '= formCss',
   onsubmit: '() onFormSubmit',
   children: '= children'
 }];

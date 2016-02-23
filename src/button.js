@@ -1,12 +1,21 @@
 import Component from './component';
 import Element from './_element';
-import css from './_css';
+import _css from './_css';
 
 class Button extends Component{
-  init({text, cls, onClick}){
-    this.buttonCls = css(cls, 'btn', 'btn-default');
+  init({text, css, toggle, onClick}){
     this.text = text;
+    this.buttonCss = _css(css, 'btn', 'btn-default');
+    this.toggle = toggle;
     this.onClick = onClick;
+  }
+
+  render(){
+    super.render();
+
+    if (this.toggle){
+      this.el.setAttribute('data-toggle', this.toggle);
+    }
   }
 }
 
@@ -14,7 +23,7 @@ Button.tpl = [Element, {
   tagName: 'button',
   type: 'button',
   innerText: '= text',
-  className: '= buttonCls',
+  className: '= buttonCss',
   onclick: '= onClick'
 }];
 

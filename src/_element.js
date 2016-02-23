@@ -1,42 +1,42 @@
 class Element{
-  constructor(opts){
-    this.el = document.createElement(opts.tagName);
+  constructor(options){
+    this.el = document.createElement(options.tagName);
 
-    this.reset(opts);
+    this.reset(options);
   }
 
-  reset(opts){
-    if (opts.tagName !== this.el.localName){
+  reset(options){
+    if (options.tagName !== this.el.localName){
       throw new Error('tagName cannot be changed in runtime');
     }
 
-    for (var k in opts){
+    for (var k in options){
       if (k === 'tagName'){
         continue;
       }
 
       if (k === 'children'){
-        if ( ! opts.children){
+        if ( ! options.children){
           // Div bounds children so it will be always-present (and possibly undefined)
           continue;
         }
 
         this.el.innerHTML = '';
-        opts.children.forEach(childEl => this.el.appendChild(childEl));
+        options.children.forEach(childEl => this.el.appendChild(childEl));
         continue;
       }
 
-      if ((k === 'className') && ( ! opts[k])){
+      if ((k === 'className') && ( ! options[k])){
         this.el.removeAttribute('class');
         continue;
       }
 
-      if ((k === 'placeholder') && ( ! opts[k])){
+      if ((k === 'placeholder') && ( ! options[k])){
         this.el.removeAttribute('placeholder');
         continue;
       }
 
-      this.el[k] = opts[k];
+      this.el[k] = options[k];
     }
   }
 

@@ -1,11 +1,11 @@
 import Component from './component';
 import Element from './_element';
 import Link from './link';
-import css from './_css';
+import _css from './_css';
 
 class NavDropdown extends Component{
-  init({text, cls, children}){
-    this.liCls = css(cls, 'dropdown');
+  init({text, css, children}){
+    this.liCss = _css(css, 'dropdown');
 
     this.text = text;
     this.children = children;
@@ -22,7 +22,7 @@ class NavDropdown extends Component{
   }
 }
 
-NavDropdown.tpl = [Element, {tagName: 'li', className: '= liCls'},
+NavDropdown.tpl = [Element, {tagName: 'li', className: '= liCss'},
   [Link, {text: '= text'}],
   [Element, {tagName: 'ul', className: 'dropdown-menu', children: '= children'}]
 ];

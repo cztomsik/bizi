@@ -15,9 +15,9 @@ class Repeater extends Component{
     this.children = this.views.map(item => item.el);
   }
 
-  reset(opts){
+  reset(options){
     this.destroyChildren();
-    super.reset(opts);
+    super.reset(options);
   }
 
   destroyChildren(){

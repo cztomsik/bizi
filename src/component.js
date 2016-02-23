@@ -27,11 +27,11 @@ import View from './view';
  *       [b.Btn, {text: '++', onClick: '() inc'}]
  *     ];
  *
- * @param opts
+ * @param options
  */
 class Component{
-  constructor(opts){
-    const res = this.init(opts);
+  constructor(options){
+    const res = this.init(options);
 
     this._biziView = new View({tpl: this.constructor.tpl, model: this});
     this.el = this._biziView.el;
@@ -48,19 +48,19 @@ class Component{
   /**
    * Set *all* your props to initial state
    * - called during object construction/reset
-   * @param opts
+   * @param options
    */
-  init(opts){}
+  init(options){}
 
   /**
-   * Re-initialize whole state with with new opts.
+   * Re-initialize whole state with with new options.
    * - instead of doing it partially in setters
    * - called by owner for data-bound changes
    *
-   * @param opts
+   * @param options
    */
-  reset(opts){
-    this.init(opts);
+  reset(options){
+    this.init(options);
     this.render();
   }
 

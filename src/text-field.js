@@ -3,15 +3,15 @@ import Div from './div';
 import FormControl from './_form-control';
 
 class TextField extends Component{
-  init({value, placeholder, cls, onValue}){
+  init({value, placeholder, css, onValue}){
     this.value = value;
     this.placeholder = placeholder;
-    this.cls = cls;
+    this.css = css;
     this.onValue = onValue;
   }
 }
 
-TextField.tpl = [Div, {cls: '= cls'},
+TextField.tpl = [Div, {css: '= css'},
   [FormControl, {
     tagName: 'input',
     value: '= value',

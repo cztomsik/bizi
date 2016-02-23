@@ -23,16 +23,16 @@ class View{
     });
   }
 
-  reset(opts){
+  reset(options){
     // replacing element might cause a lot of headache
     // so at least for now the philosophy is to have
     // static template/element structure
-    if (this.tpl !== opts.tpl){
+    if (this.tpl !== options.tpl){
       throw new Error('dynamic views are not supported');
     }
 
     this.destroy();
-    this.constructor.call(this, opts);
+    this.constructor.call(this, options);
   }
 
   destroy(){
@@ -49,39 +49,39 @@ class View{
   }
 }
 
-function applyTpl(Comp, opts = {}, ...children){
+function applyTpl(Comp, options = {}, ...children){
   const boundOpts = {};
 
   // shared (from tpl), we need to make a copy
-  opts = Object.assign({}, opts);
+  options = Object.assign({}, options);
 
-  if (( ! ('children' in opts)) && children.length){
-    opts.children = children.map((tpl) => {
+  if (( ! ('children' in options)) && children.length){
+    options.children = children.map((tpl) => {
       return applyTpl.apply(this, tpl).el;
     });
   }
 
   // `& obj.prop` shortcut
-  for (let k in opts){
-    var v = opts[k];
+  for (let k in options){
+    var v = options[k];
 
     if ((typeof v === 'string') && v.startsWith('& ')){
-      opts[k] = '=' + v.slice(1);
-      opts['on' + k.slice(0, 1).toUpperCase() + k.slice(1)] = setter(this.model, v.slice(2));
+      options[k] = '=' + v.slice(1);
+      options['on' + k.slice(0, 1).toUpperCase() + k.slice(1)] = setter(this.model, v.slice(2));
     }
   }
 
-  for (let k in opts){
-    opts[k] = resolveOpt(opts[k], k, this.model);
+  for (let k in options){
+    options[k] = resolveOpt(options[k], k, this.model);
   }
 
   try {
-    const c = new Comp(opts);
+    const c = new Comp(options);
 
     for (let k in boundOpts){
       this.bindings.unshift(watch(boundOpts[k], (v) => {
-        opts[k] = v;
-        c.reset(opts);
+        options[k] = v;
+        c.reset(options);
       }));
     }
 

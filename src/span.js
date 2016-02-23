@@ -1,17 +1,17 @@
 import Component from './component';
 import Element from './_element';
-import css from './_css';
+import _css from './_css';
 
 class Span extends Component{
-  init({text, type, cls}){
-    this.spanCls = css(cls, `text-${type}`);
+  init({text, type, css}){
+    this.spanCss = _css(css, `text-${type}`);
     this.text = text || '';
   }
 }
 
 Span.tpl = [Element, {
   tagName: 'span',
-  className: '= spanCls',
+  className: '= spanCss',
   innerText: '= text'
 }];
 
