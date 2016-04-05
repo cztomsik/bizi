@@ -1,30 +1,15 @@
 import Component from './component';
-import Element from './_element';
-import _css from './_css';
+import css from './_css';
 
 class Button extends Component{
-  init({text, css, toggle, onClick}){
+  init({text, className}){
     this.text = text;
-    this.buttonCss = _css(css, 'btn', 'btn-default');
-    this.toggle = toggle;
-    this.onClick = onClick;
-  }
-
-  render(){
-    super.render();
-
-    if (this.toggle){
-      this.el.setAttribute('data-toggle', this.toggle);
-    }
+    this.buttonClassName = css(className, 'btn btn-default');
   }
 }
 
-Button.tpl = [Element, {
-  tagName: 'button',
-  type: 'button',
-  innerText: '= text',
-  className: '= buttonCss',
-  onclick: '= onClick'
-}];
+Button._template = `
+  <button type="button" $class="buttonClassName" $inner-text="text"></button>
+`;
 
 export default Button;

@@ -4,7 +4,7 @@ function css(...names){
 
 function init(){
   document.head.insertAdjacentHTML('beforeend', `<style>
-    /* compatible with bs4 */
+    /* backported from bs4 */
     .m-a-0{margin: 0 !important}
     .m-t-0{margin-top: 0 !important}
     .m-r-0{margin-right: 0 !important}
@@ -16,8 +16,6 @@ function init(){
     .p-r-0{padding-right: 0 !important}
     .p-b-0{padding-bottom: 0 !important}
     .p-l-0{padding-left: 0 !important}
-
-    .text-truncate {overflow: hidden; text-overflow: ellipsis; white-space: nowrap}
   </style>`);
 }
 
