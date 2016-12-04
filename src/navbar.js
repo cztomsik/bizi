@@ -1,32 +1,51 @@
-import Component from './component';
-import css from './_css';
+import {Base} from './_base';
 
-class Navbar extends Component{
-  init({className}){
-    this.divClassName = css(className, 'navbar navbar-static-top m-a-0 navbar-default');
+/**
+ * <example>
+ *   <b-navbar>
+ *     <b-list class="nav navbar-nav" items=" [{name: 'Home'}, {name: 'About'}] " />
+ *   </b-navbar>
+ * </example>
+ *
+ * <example>
+ *   <b-navbar color="inverse" />
+ * </example>
+ */
+export class Navbar extends Base{
+  init(){
+    super.init();
+
+    this.collapsed = true;
+  }
+
+  getClassName(){
+    return `navbar navbar-${this.options.color} m-0 ${super.getClassName()}`;
+  }
+
+  getCollapseClassName(){
+    return `${this.collapsed && 'collapse'} navbar-collapse`;
+  }
+
+  toggleCollapsed(){
+    this.collapsed = ! this.collapsed;
+    this.render();
   }
 }
 
 Navbar._template = `
-  <nav $class="divClassName">
+  <nav class="{{ this.getClassName() }}">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href=".">Navbar</a>
+        <b-button class="navbar-toggle" text=":menu" on-click="toggleCollapsed" />
+        <a class="navbar-brand" href="#">Bizi</a>
       </div>
 
-      <!-- TODO: sidebar collapse -->
-
-      <div class="collapse navbar-collapse">
-        <content></content>
-      </div>
+      <div class="{{ this.getCollapseClassName() }}" children="{{ this.options.children }}" />
     </div>
   </nav>
 `;
 
-export default Navbar;
+Navbar.setDefaults({
+  children: [],
+  color: 'default'
+});

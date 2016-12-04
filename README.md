@@ -1,6 +1,10 @@
 # bizi
-Bootstrap-based UI component library
+Admin UI library
 
-## Sample applications
-  - [bizi site](https://github.com/cztomsik/bizi-www)
-  - [simple CRM](https://github.com/cztomsik/bizi-crm)
+[Demo](http://bizi-www.herokuapp.com/)
+
+# Dev
+
+    npm install
+    npm run dev
+    open http://127.0.0.1:8080

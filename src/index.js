@@ -1,22 +1,14 @@
-import _css from './_css';
+export * from './button';
+export * from './button-group';
+export * from './data-grid';
+export * from './data-grid-column';
+export * from './navbar';
+export * from './list';
+export * from './combo-box';
+export * from './tab-control';
+export * from './tab-item';
+export * from './text-box';
+export * from './text';
 
-export {default as Alert} from './alert';
-export {default as ButtonGroup} from './button-group';
-export {default as Button} from './button';
-export {default as Component} from './component';
-export {default as Container} from './container';
-export {default as FormGroup} from './form-group';
-export {default as Form} from './form';
-export {default as Input} from './input';
-export {default as Jumbotron} from './jumbotron';
-export {default as Nav} from './nav';
-export {default as Navbar} from './navbar';
-export {default as Page} from './page';
-export {default as Sidebar} from './sidebar';
-export {default as Textarea} from './textarea';
-export {default as Well} from './well';
-
-module.exports.Component._library = module.exports;
-
-// TODO: explicit
-_css.init();
+import {lib} from './_base';
+lib.b = module.exports;

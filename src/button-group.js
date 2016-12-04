@@ -1,16 +1,30 @@
-import Component from './component';
-import css from './_css';
+import {Base} from './_base';
 
-class ButtonGroup extends Component{
-  init({className}){
-    this.divClassName = css(className, 'btn-group');
+/**
+ * Group related buttons together
+ *
+ * <example>
+ *   <b-button text="Edit" />
+ *
+ *   <b-button-group>
+ *     <b-button text="Postpone" />
+ *     <b-button text="Resolve" />
+ *   </b-button-group>
+ * </example>
+ */
+export class ButtonGroup extends Base{
+  getClassName(){
+    return `btn-group ${super.getClassName()}`;
   }
 }
 
 ButtonGroup._template = `
-  <div $class="divClassName">
-    <content></content>
-  </div>
+  <div
+    class="{{ this.getClassName() }}"
+    children="{{ this.options.children }}"
+  />
 `;
 
-export default ButtonGroup;
+ButtonGroup.setDefaults({
+  children: []
+});
