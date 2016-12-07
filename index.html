@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="docs">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <script src="node_modules/systemjs/dist/system.js"></script>
+  <script>
+    SystemJS.config({
+      map: {
+        bizi: './build',
+        'babel-polyfill': './node_modules/babel-polyfill/dist/polyfill.min.js',
+        jquery: 'node_modules/jquery/dist/jquery.js',
+        angular: 'node_modules/angular/angular.min.js',
+        lodash: 'node_modules/lodash/lodash.js',
+        dedent: 'node_modules/dedent/dist/dedent.js'
+      },
+
+      packages: {
+        'bizi': {
+          main: 'index.js'
+        }
+      }
+    });
+
+    System.import('bizi/docs/app.js');
+  </script>
+</head>
+<body>
+  <app />
+</body>
+</html>
