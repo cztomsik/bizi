@@ -64,7 +64,9 @@ _.forEach(b, (Comp) => {
         return function($scope, $el, $linkAtt, ngModel){
           // create instance with bound listeners
           const options = {};
-          const c = new Comp(_.mapValues(listeners, _.partial(_.partial, _, $scope)));
+          const c = new Comp(_.mapValues(listeners, (l) => {
+            return _.partial(l, $scope);
+          }));
 
           $scope.$on('$destroy', _.bindKey(c, 'destroy'));
 
