@@ -2,7 +2,7 @@
   "name": "bizi",
   "scripts": {
     "build": "babel ./src --out-dir ./build",
-    "dev": "npm run build -- --source-maps inline --watch & http-server",
+    "dev": "npm run build -- --source-maps inline --watch & http-server -c-1",
     "prepublish": "npm run build"
   },
   "dependencies": {
