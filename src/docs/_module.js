@@ -5,9 +5,6 @@ import dedent from 'dedent';
 
 import ngBizi from '../_angular';
 
-// ES6
-import 'babel-polyfill';
-
 export const docs = angular.module('docs', [ngBizi.name]);
 
 // regenerator

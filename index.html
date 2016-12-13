@@ -17,8 +17,14 @@
       },
 
       packages: {
-        'bizi': {
+        bizi: {
           main: 'index.js'
+        }
+      },
+
+      meta: {
+        '*': {
+          deps: ['babel-polyfill']
         }
       }
     });
