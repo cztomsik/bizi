@@ -27,7 +27,7 @@ docs.directive('example', ($compile) => {
       const html = dedent($el.html()).trim();
 
       $el.html(`
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="margin: 15px 0">
           <div class="panel-body" ng-include=" html | tpl "></div>
           <pre class="panel-footer m-0" style="border: 0">{{ html }}</pre>
         </div>
