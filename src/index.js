@@ -3,6 +3,7 @@ export * from './button-group';
 export * from './data-grid';
 export * from './data-grid-column';
 export * from './navbar';
+export * from './dialog';
 export * from './list';
 export * from './combo-box';
 export * from './tab-control';
