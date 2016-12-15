@@ -57,8 +57,8 @@ docs.component('app', {
         {name: 'Lumen', style: '@import "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css";'},
         {name: 'Cosmo', style: '@import "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css";'},
         {name: 'Paper', style: '@import "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css";'},
-        {name: 'AdminLTE', style: '@import "//cdnjs.cloudflare.com/ajax/libs/todc-bootstrap/3.3.6-3.3.6/css/bootstrap.min.css"; @import "//rawgit.com/almasaeed2010/AdminLTE/master/dist/css/AdminLTE.css";'},
-        {name: 'Flat-UI', style: '@import "//cdnjs.cloudflare.com/ajax/libs/todc-bootstrap/3.3.6-3.3.6/css/bootstrap.min.css"; @import "//rawgit.com/designmodo/Flat-UI/master/dist/css/flat-ui.css";'}
+        {name: 'AdminLTE', style: '@import "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"; @import "//rawgit.com/almasaeed2010/AdminLTE/master/dist/css/AdminLTE.css";'},
+        {name: 'Flat-UI', style: '@import "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"; @import "//rawgit.com/designmodo/Flat-UI/master/dist/css/flat-ui.css";'}
       ];
 
       this.theme = _.first(this.themes);
